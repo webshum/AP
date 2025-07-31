@@ -25,10 +25,10 @@ jobs:
                       cd /var/www/ap
                       git fetch origin
                       git reset --hard origin/develop
-                      git clean -fd 
-                      git pull origin develop --force 
+                      git clean -fd
+                      git pull origin develop --force
                       composer install --no-interaction --prefer-dist --optimize-autoloader
-                      cd /web/app/themes/sage/
+                      cd web/app/themes/sage
                       composer install --no-interaction --prefer-dist --optimize-autoloader
                       npm install
                       npm run build
