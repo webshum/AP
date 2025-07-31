@@ -40,8 +40,7 @@ services:
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
-      - ./mysqlDb:/var/lib/mysql 
-      - ./docker/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysqlDb:/var/lib/mysql
     networks:
       - app-network
     restart: always
