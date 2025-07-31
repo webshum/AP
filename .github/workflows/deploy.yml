@@ -22,11 +22,14 @@ jobs:
                   password: "${{ secrets.DEV_PASSWORD }}"
                   port: "${{ secrets.DEV_PORT }}"
                   script: |
-                      cd /var/www/alumwork
+                      cd /var/www/ap
                       git fetch origin
                       git reset --hard origin/develop
                       git clean -fd 
                       git pull origin develop --force 
+                      composer install --no-interaction --prefer-dist --optimize-autoloader
+                      cd /web/app/themes/sage/
+                      composer install --no-interaction --prefer-dist --optimize-autoloader
                       npm install
                       npm run build
 
@@ -48,4 +51,4 @@ jobs:
                   to: "${{ secrets.TELEGRAM_ID }}"
                   token: "${{ secrets.TELEGRAM_TOKEN }}"
                   message: |
-                      Deployment successful https://alumwork.de/ on branch ${{ github.ref }}
+                      Deployment successful http://ap.webshum.com.ua/ on branch ${{ github.ref }}
