@@ -1,0 +1,50 @@
+version: "2.1"
+
+services:
+  app: 
+    container_name: app_ap
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - app-network
+    depends_on:
+      - db
+    restart: always
+
+  nginx:
+    container_name: app_nginx
+    image: nginx:stable-alpine
+    ports: 
+      - 8300:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - app-network
+    restart: always
+
+  db:
+    container_name: app_db
+    image: mariadb
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./mysqlDb:/var/lib/mysql 
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
