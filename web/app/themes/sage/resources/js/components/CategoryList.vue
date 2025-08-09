@@ -5,7 +5,8 @@ const categories = ref([]);
 const currentCategory = ref(null);
 
 async function fetchCategoriesData() {
-	const response = await fetch('http://localhost:8300/wp-json/categories/v1/list');
+	const url = import.meta.env.VITE_API_URL;
+	const response = await fetch(`${url}/wp-json/categories/v1/list`);
 
 	if (response.ok) {
 		const json = await response.json();
