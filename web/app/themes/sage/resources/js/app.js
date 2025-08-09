@@ -6,8 +6,8 @@ import.meta.glob([
 ]);
 
 window.onload = () => {
-    cursor();
-    anchor();
+    if (document.querySelector('.cursor')) cursor();
+    if (document.querySelector('.single-content')) anchor();
 }
 
 function cursor() {

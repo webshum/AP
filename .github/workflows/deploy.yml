@@ -27,9 +27,9 @@ jobs:
                       git reset --hard origin/develop
                       git clean -fd
                       git pull origin develop --force
-                      composer install --no-interaction --prefer-dist --optimize-autoloader
+                      composer install
                       cd web/app/themes/sage
-                      composer install --no-interaction --prefer-dist --optimize-autoloader
+                      composer install
                       npm install
                       npm run build
 
