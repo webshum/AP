@@ -47,16 +47,14 @@ onMounted(() => {
 <style>
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-	transition: all 1.3s ease;
+	transition: all 1.5s ease;
 }
 
 .fade-slide-enter-from {
-	opacity: 0;
-  	transform: scale(1.3) translateY(60px) rotateX(30deg);
+	
 }
 
 .fade-slide-leave-to {
-  	opacity: 0;
-  	transform: scale(0.8) translateY(-60px) rotateX(-20deg);
+  	transform: scale(0);
 }
 </style>
