@@ -58,3 +58,46 @@ collect(['setup', 'filters'])
             );
         }
     });
+
+
+/*
+|--------------------------------------------------------------------------
+| Api
+|--------------------------------------------------------------------------
+*/
+add_action('rest_api_init', function () {
+    register_rest_route('categories/v1', '/list', [
+        'methods'             => 'GET',
+        'callback'            => 'get_categories_api',
+        'permission_callback' => '__return_true',
+    ]);
+});
+
+function get_categories_api() {
+    $categories = get_categories([
+        'hide_empty' => false,
+        'parent'     => 0,
+    ]);
+
+    $data = [];
+
+    foreach ($categories as $category) {
+        $image = get_field('image', 'term_' . $category->term_id);
+        $image_url = is_array($image) ? $image['url'] : null;
+
+        $data[] = [
+            'id'          => $category->term_id,
+            'name'        => $category->name,
+            'slug'        => $category->slug,
+            'description' => $category->description,
+            'count'       => $category->count,
+            'image'       => $image_url,
+        ];
+    }
+
+    return rest_ensure_response($data);
+}
+
+if (defined('WP_CLI') && WP_CLI) {
+    WP_CLI::add_command('seed-posts', \App\Seeders\PostSeeder::class);
+}

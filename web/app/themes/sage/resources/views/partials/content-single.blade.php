@@ -1,23 +1,33 @@
 <article @php(post_class('h-entry'))>
-  <header>
-    <h1 class="p-name">
-      {!! $title !!}
-    </h1>
+    <header>
+        <h1 class="p-name">
+            {!! $title !!}
+        </h1>
+        
+        <div class="image">
+            {!! the_post_thumbnail() !!}
+        </div>
 
-    @include('partials.entry-meta')
-  </header>
+        @include('partials.entry-meta')
+    </header>
 
-  <div class="e-content">
-    @php(the_content())
-  </div>
+    <div class="single-content">
+        <aside>
+            
+        </aside>
 
-  @if ($pagination())
-    <footer>
-      <nav class="page-nav" aria-label="Page">
-        {!! $pagination !!}
-      </nav>
-    </footer>
-  @endif
+        <div class="e-content">
+            @php(the_content())
+        </div>
+    </div>
 
-  @php(comments_template())
+    @if ($pagination())
+        <footer>
+            <nav class="page-nav" aria-label="Page">
+            {!! $pagination !!}
+            </nav>
+        </footer>
+    @endif
+
+    {{-- @php(comments_template()) --}}
 </article>

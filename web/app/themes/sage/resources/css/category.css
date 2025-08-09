@@ -1,0 +1,57 @@
+.archive {
+    .main {
+        align-items: start;
+
+        .center {flex-direction: column;}
+    }
+}
+
+.category-header {
+    text-align: center;
+
+    .description {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+}
+
+.subcategories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 30px;
+
+    a {
+        display: block;
+        position: relative;
+
+        span {
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        &:hover span {
+            opacity: 1;
+            bottom: 100%;
+        }
+    }
+
+    .image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

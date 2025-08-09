@@ -1,0 +1,21 @@
+.footer {
+	padding: 50px 0;
+	font-weight: 300;
+	position: relative;
+	z-index: 3;
+}
+
+.address {
+	div {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	div + div {margin-top: 15px;}
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 0 10px;
+	}
+}
