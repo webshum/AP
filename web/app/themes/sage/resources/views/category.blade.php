@@ -3,6 +3,7 @@
     $subcategories = [];
     $posts = [];
     $current_category = get_queried_object();
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     if (!empty($current_category)) {
         $args = array(
@@ -12,10 +13,12 @@
         );
 
         $subcategories = get_categories($args);
-        $posts = get_posts([
-            'category' => $current_category->term_id,
-            'numberposts' => -1,
+
+        $query = new WP_Query([
+            'cat' => $current_category->term_id,
             'post_status' => 'publish',
+            'posts_per_page' => get_option('posts_per_page'),
+            'paged' => $paged,
         ]);
     }
 @endphp
@@ -74,28 +77,33 @@
         </ul>
     @endif
 
-    @if(!empty($posts) && sizeof($posts))
+    @if($query->have_posts())
         <div class="posts">
-            @foreach ($posts as $post)
-                @php setup_postdata($post) @endphp
+            @while($query->have_posts())
+                @php $query->the_post() @endphp
                 <div class="post">
-                    {!! get_the_post_thumbnail($post->ID, 'medium') !!}
-    
+                    {!! get_the_post_thumbnail(get_the_ID(), 'medium') !!}
                     <div class="foot">
                         <h2>
-                            <a href="{{ get_permalink() }}">
-                                {{ get_the_title() }}
-                            </a>
+                            <a href="{{ get_permalink() }}">{{ get_the_title() }}</a>
                         </h2>
                     </div>
-
                     <a class="btn-more" href="{{ get_permalink() }}">
                         <svg><use xlink:href="#arrow"></use></svg>
                     </a>
                 </div>
-            @endforeach
-            @php wp_reset_postdata() @endphp
+            @endwhile
         </div>
+        
+        <div class="pagination">
+            {!! paginate_links([
+                'total' => $query->max_num_pages,
+                'current' => $paged,
+                'prev_text' => __('«'),
+                'next_text' => __('»'),
+            ]) !!}
+        </div>
+        @php wp_reset_postdata() @endphp
     @endif
 </div>
 @endsection

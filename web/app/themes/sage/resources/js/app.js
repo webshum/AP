@@ -7,7 +7,6 @@ import.meta.glob([
 
 window.onload = () => {
     if (document.querySelector('.cursor')) cursor();
-    if (document.querySelector('.single-content')) anchor();
 }
 
 function cursor() {
@@ -21,21 +20,6 @@ function cursor() {
         curs.style.top = (y - 175) + "px";
         curs.style.opacity = "1";
     });
-}
-
-function anchor() {
-    const singleContent = document.querySelector('.single-content');
-    const aside = singleContent.querySelector('aside');
-    const anchors = singleContent.querySelectorAll('[id^="anchor-"]');
-
-    anchors.forEach(anchor => {
-        const link = document.createElement('a');
-        link.href = `#${anchor.id}`;
-        link.className = 'hexagono';
-        link.dataset.label = anchor.textContent;
-        aside.appendChild(link);
-    }); 
-    console.log(anchors);
 }
 
 const app = createApp({});

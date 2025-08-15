@@ -1,3 +1,8 @@
+@php
+    $category = get_the_category();
+    $categories = get_categories(['hide_empty' => false, 'parent' => 0]);
+@endphp
+
 <article @php(post_class('h-entry'))>
     <header>
         <h1 class="p-name">
@@ -13,7 +18,27 @@
 
     <div class="single-content">
         <aside>
-            
+            @if (!empty($category) && sizeof($category))
+                <ul class="hexagon-categories">
+                    @foreach ($category as $category)
+                        <li class="current">
+                            <a href="{{ get_category_link($category) }}">{{ $category->name }}</a>
+                            <a class="ic-hexagon" href="{{ get_category_link($category) }}">#</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
+            @if (!empty($categories) && sizeof($categories))
+                <ul class="hexagon-categories">
+                    @foreach ($categories as $category)
+                        <li>
+                            <a href="{{ get_category_link($category) }}">{{ $category->name }}</a>
+                            <a class="ic-hexagon" href="{{ get_category_link($category) }}">#</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </aside>
 
         <div class="e-content">

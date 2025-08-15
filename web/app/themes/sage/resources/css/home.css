@@ -34,7 +34,7 @@
 
 	.main {
 		position: relative;
-		min-height: calc(100vh - 233px);
+		min-height: calc(100vh - 239px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -44,6 +44,10 @@
 			align-items: center;
 			justify-content: center;
 			height: 100%;
+		}
+
+		@media (max-width: 767px) {
+			min-height: calc(100vh - 245px);
 		}
 	}
 }
@@ -148,29 +152,6 @@
 		transform: translate(-50%, -50%);
 		overflow: hidden;
 
-		&::before,
-		&::after {
-			content: '';
-			position: absolute;
-			left: -3px;
-			top: -3px;
-			right: -3px;
-			bottom: -3px;
-			background: #333;
-			border-radius: 50%;
-			background-repeat: no-repeat;
-			background-position: 0 0;
-			background-image: conic-gradient(#ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff, #ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff, #ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff);
-			animation: rotate 4s linear infinite;
-			z-index: -1;
-		}
-		
-		&::after {
-			background: none;
-			background-image: conic-gradient(#ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff, #ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff, #ff3c41, #ff8a25, #ffe04f, #4fff88, #56ffef, #37b4ff, #c05aff);
-			filter: blur(10px);
-		}
-
 		a {
 			display: block;
 			position: absolute;
@@ -236,6 +217,14 @@
 
 	@media (max-width: 1300px) {
 		zoom: 0.7;
+	}
+
+	@media (max-width: 1200px) {
+		zoom: 0.6;
+	}
+
+	@media (max-width: 767px) {
+		zoom: 0.5;
 	}
 }
 

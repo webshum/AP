@@ -1,7 +1,7 @@
 <header class="header">
     <div class="center">
-        <a href="/">
-            <svg width="35" height="35"><use xlink:href="#home"></use></svg>
+        <a href="/" class="account-user">
+            <div class="ic-hexagon"></div>
         </a>
         
         <a class="brand" href="{{ home_url('/') }}">
@@ -14,8 +14,8 @@
           </nav>
         @endif --}}
 
-        <a href="#">
-            <svg width="35" height="35"><use xlink:href="#loginin"></use></svg>
+        <a href="#" class="account-installator">
+            <div class="ic-hexagon"></div>
         </a>
     </div>
 </header>

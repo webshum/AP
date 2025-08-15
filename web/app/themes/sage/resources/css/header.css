@@ -4,6 +4,13 @@
 	position: relative;
 	z-index: 4;
 
+	.ic-hexagon {
+		zoom: 0.6;
+		background-color: #007edb;
+		&:hover {transform: scale(1.2);}
+	}
+	.account-installator .ic-hexagon {background-color: #f22820;}
+
 	.center {
 		display: flex;
 		align-items: center;
@@ -14,5 +21,12 @@
 		font-size: 20px;
 		font-weight: bold;
 		text-transform: uppercase;
+	}
+
+	@media (max-width: 767px) {
+		.brand {
+			font-size: 15px;
+			max-width: 170px;
+		}
 	}
 }
