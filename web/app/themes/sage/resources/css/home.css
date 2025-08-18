@@ -150,7 +150,6 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		overflow: hidden;
 
 		a {
 			display: block;
@@ -161,19 +160,7 @@
 			bottom: 2px;
 			border-radius: 50%;
 			z-index: 3;
-			background: #000;
-			&:after {
-				content: '';
-				display: block;
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-				background: radial-gradient(#000, transparent 50%);
-				transition: all 0.3s;
-				opacity: 0;
-			}
+			user-select: none;
 		}
 
 		&:hover a:after {opacity: 1;}
@@ -182,7 +169,6 @@
 			display: block;
 			width: 100%;
 			height: 100%;
-			border-radius: 50%;
 			transition: all 0.3s;
 		}
 		&:hover img {transform: scale(0.9);}
@@ -199,7 +185,9 @@
 		}
 
 		&:hover span {
-			transform: translate(-50%, -50%);
+			transform: translate(-50%, 100%);
+			margin-top: 25px;
+			display: inline-block;
 			opacity: 1;
 		}
 

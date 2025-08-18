@@ -4,24 +4,32 @@
     $posts = [];
     $current_category = get_queried_object();
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
+    
     if (!empty($current_category)) {
-        $args = array(
-            'taxonomy'     => 'category',
-            'child_of'     => $current_category->term_id,
-            'hide_empty'   => false,
-        );
+        $args = [
+            'taxonomy'   => 'category',
+            'child_of'   => $current_category->term_id,
+            'hide_empty' => false,
+        ];
 
         $subcategories = get_categories($args);
 
+        if (!empty($subcategories)) {
+            $middleIndex = floor(count($subcategories) / 2);
+            array_splice($subcategories, $middleIndex, 0, [$current_category]);
+        } else {
+            $subcategories = [$current_category];
+        }
+
         $query = new WP_Query([
-            'cat' => $current_category->term_id,
-            'post_status' => 'publish',
+            'cat'            => $current_category->term_id,
+            'post_status'    => 'publish',
             'posts_per_page' => get_option('posts_per_page'),
-            'paged' => $paged,
+            'paged'          => $paged,
         ]);
     }
 @endphp
+
 @section('content')
 <div class="center">
     <div class="main-stars">
@@ -41,8 +49,8 @@
 		<div class="firefly"></div>
 		<div class="firefly"></div>
 	</div>
-   
-    <div class="category-header">
+    
+    <div class="category-header hidden">
         @if(!empty($current_category->name))
         <h1 class="title">
             {{ $current_category->name }}
@@ -55,27 +63,8 @@
         </div>
         @endif
     </div>
-
-    @if (!empty($subcategories) && sizeof($subcategories))
-        <ul class="subcategories">
-            @foreach ($subcategories as $subcategory)
-                @php
-                    $image = get_field('image', "term_{$subcategory->term_id}")
-                @endphp
-
-                <li>
-                    <a href="{{ get_category_link($subcategory) }}">
-                        @if($image)
-                            <div class="image">
-                                <img width="100" src="{{ $image['url'] }}" alt="{{ $subcategory->name }}" />
-                            </div>
-                        @endif
-                        <span>{{ $subcategory->name }}</span>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    @endif
+    
+    @include('components.categories')
 
     @if($query->have_posts())
         <div class="posts">

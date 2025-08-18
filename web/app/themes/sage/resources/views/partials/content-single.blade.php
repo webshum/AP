@@ -1,7 +1,27 @@
 @php
     $category = get_the_category();
-    $categories = get_categories(['hide_empty' => false, 'parent' => 0]);
+    $current_category = get_categories(['hide_empty' => false, 'parent' => 0]);
+    $current_category = $current_category[0];
+
+    if (!empty($current_category)) {
+        $args = [
+            'taxonomy'   => 'category',
+            'child_of'   => $current_category->term_id,
+            'hide_empty' => false,
+        ];
+
+        $subcategories = get_categories($args);
+
+        if (!empty($subcategories)) {
+            $middleIndex = floor(count($subcategories) / 2);
+            array_splice($subcategories, $middleIndex, 0, [$current_category]);
+        } else {
+            $subcategories = [$current_category];
+        }
+    }
 @endphp
+
+@include('components.categories')
 
 <article @php(post_class('h-entry'))>
     <header>
@@ -17,31 +37,9 @@
     </header>
 
     <div class="single-content">
-        <aside>
-            @if (!empty($category) && sizeof($category))
-                <ul class="hexagon-categories">
-                    @foreach ($category as $category)
-                        <li class="current">
-                            <a href="{{ get_category_link($category) }}">{{ $category->name }}</a>
-                            <a class="ic-hexagon" href="{{ get_category_link($category) }}">#</a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
+        <aside class="js-aside"></aside>
 
-            @if (!empty($categories) && sizeof($categories))
-                <ul class="hexagon-categories">
-                    @foreach ($categories as $category)
-                        <li>
-                            <a href="{{ get_category_link($category) }}">{{ $category->name }}</a>
-                            <a class="ic-hexagon" href="{{ get_category_link($category) }}">#</a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
-        </aside>
-
-        <div class="e-content">
+        <div class="e-content js-content">
             @php(the_content())
         </div>
     </div>

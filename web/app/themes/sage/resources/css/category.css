@@ -27,11 +27,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0 30px;
+    padding-top: 50px;
 
     a {
         display: block;
         position: relative;
+        user-select: none;
+
+        .image {transition: all 0.3s;}
 
         span {
             position: absolute;
@@ -39,14 +42,25 @@
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
-            margin-bottom: 15px;
             transition: all 0.3s ease;
             opacity: 0;
+            text-transform: uppercase;
         }
+
+        &:hover .image {transform: scale(1.1);}
 
         &:hover span {
             opacity: 1;
             bottom: 100%;
+        }
+    }
+
+    .active {
+        .image {zoom: 1.5;}
+        a span {
+            opacity: 1;
+            bottom: 100%;
+            font-weight: bold;
         }
     }
 
@@ -65,5 +79,9 @@
 
     @media (max-width: 1600px) {
         a {zoom: 0.8;}
+    }
+
+    @media (max-width: 767px) {
+        justify-content: start;
     }
 }
