@@ -1,7 +1,7 @@
 <?php
 
 use Roots\Acorn\Application;
-
+ini_set('display_errors', 0);
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
