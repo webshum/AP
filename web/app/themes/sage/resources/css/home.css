@@ -1,7 +1,9 @@
-.home, .archive {
+.archive {
 	background: url(../images/home-bg.jpg) no-repeat center center;
 	background-size: cover;
+}
 
+.home, .archive {
 	#app {
 		position: relative;
 		overflow: hidden;

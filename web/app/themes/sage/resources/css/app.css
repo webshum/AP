@@ -93,6 +93,7 @@ h6 {font-size: 10px;}
 @import "./home.css";
 @import "./category.css";
 @import "./post.css";
+@import "./page.css";
 @import "./footer.css";
 @import "./animation.css";
 

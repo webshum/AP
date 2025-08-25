@@ -7,6 +7,12 @@ import.meta.glob([
 
 window.onload = () => {
     if (document.querySelector('.cursor')) cursor();
+
+    document.querySelector('.menu-open').onclick = e => {
+        e.preventDefault();
+
+        document.body.classList.toggle('menu-opened');
+    }
 }
 
 function cursor() {

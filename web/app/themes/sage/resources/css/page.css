@@ -1,0 +1,66 @@
+.page {
+    background: url(../images/home-bg.jpg) no-repeat center center;
+	background-size: cover;
+
+    #app {
+		position: relative;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -500px;
+			left: -500px;
+			width: 1500px;
+			height: 1500px;
+			z-index: 2;
+			border-radius: 50%;
+			background: radial-gradient(rgba(1, 21, 169, 0.5), transparent 70%);
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			z-index: -2;
+			background: rgba(0,0,0,.8);
+		}
+	}
+}
+
+.page-header {
+    .center {
+        max-width: 1030px;
+    }
+
+    h1 {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .image {
+        border-radius: 20px;
+        overflow: hidden;
+        max-height: 400px;
+        display: flex;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .page .e-content {
+        border-radius: 0;
+    }
+}
