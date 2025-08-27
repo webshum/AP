@@ -19,6 +19,8 @@ body {
     }
 }
 
+#app {min-height: 100vh;}
+
 .hexagon-wrapper {
 	position: absolute;
 	top: 0;
