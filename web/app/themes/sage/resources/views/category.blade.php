@@ -8,7 +8,7 @@
         $args = [
             'taxonomy'   => 'category',
             'child_of'   => $current_category->term_id,
-            'hide_empty' => false,
+            'hide_empty' => true,
         ];
 
         $subcategories = get_categories($args);
@@ -23,7 +23,7 @@
         <aside>
             @include('components.subcategories')
         </aside>
-        
+
         <div class="content">
             @php $count = 0; @endphp
 
