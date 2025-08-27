@@ -23,7 +23,6 @@
         <aside>
             @include('components.subcategories')
         </aside>
-
         <div class="content">
             @php $count = 0; @endphp
 
