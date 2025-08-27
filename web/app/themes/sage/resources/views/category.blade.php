@@ -3,7 +3,6 @@
     $subcategories = [];
     $posts = [];
     $current_category = get_queried_object();
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     
     if (!empty($current_category)) {
         $args = [
@@ -13,20 +12,6 @@
         ];
 
         $subcategories = get_categories($args);
-
-        if (!empty($subcategories)) {
-            $middleIndex = floor(count($subcategories) / 2);
-            array_splice($subcategories, $middleIndex, 0, [$current_category]);
-        } else {
-            $subcategories = [$current_category];
-        }
-
-        $query = new WP_Query([
-            'cat'            => $current_category->term_id,
-            'post_status'    => 'publish',
-            'posts_per_page' => get_option('posts_per_page'),
-            'paged'          => $paged,
-        ]);
     }
 @endphp
 
@@ -50,49 +35,46 @@
 		<div class="firefly"></div>
 	</div>
     
-    <div class="category-header hidden">
-        @if(!empty($current_category->name))
-        <h1 class="title">
-            {{ $current_category->name }}
-        </h1>
-        @endif
-
-        @if (category_description())
-        <div class="description">
-            {!! category_description() !!}
-        </div>
-        @endif
-    </div>
-    
     @include('components.categories')
 
-    @if($query->have_posts())
-        <div class="posts">
-            @while($query->have_posts())
-                @php $query->the_post() @endphp
-                <div class="post">
-                    {!! get_the_post_thumbnail(get_the_ID(), 'medium') !!}
-                    <div class="foot">
-                        <h2>
-                            <a href="{{ get_permalink() }}">{{ get_the_title() }}</a>
-                        </h2>
+    <div class="main-content">
+        <aside>
+            @include('components.subcategories')
+        </aside>
+
+        <div class="content">
+            @php $count = 0; @endphp
+
+            @if(!empty($subcategories) && sizeof($subcategories))
+                @foreach($subcategories as $subcategory)
+                    <div class="post-category" id="sub-category-{{ $count }}">
+                        @php 
+                            $posts = new WP_Query([
+                                'post_type' => 'post',
+                                'posts_per_page' => -1,
+                                'tax_query' => [
+                                    [
+                                        'taxonomy' => 'category',
+                                        'field'    => 'term_id',
+                                        'terms'    => $subcategory->term_id,
+                                    ]
+                                ]
+                            ]);
+                        @endphp
+
+                        @if($posts->have_posts())
+                            @while($posts->have_posts()) @php $posts->the_post(); @endphp
+                                @include('partials.article')
+                            @endwhile
+
+                            @php wp_reset_postdata() @endphp
+                        @endif
                     </div>
-                    <a class="btn-more" href="{{ get_permalink() }}">
-                        <svg><use xlink:href="#arrow"></use></svg>
-                    </a>
-                </div>
-            @endwhile
+
+                    @php $count++; @endphp
+                @endforeach
+            @endif
         </div>
-        
-        <div class="pagination">
-            {!! paginate_links([
-                'total' => $query->max_num_pages,
-                'current' => $paged,
-                'prev_text' => __('«'),
-                'next_text' => __('»'),
-            ]) !!}
-        </div>
-        @php wp_reset_postdata() @endphp
-    @endif
+    </div>
 </div>
 @endsection

@@ -1,0 +1,133 @@
+.home {
+	#app {
+		position: relative;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -500px;
+			left: -500px;
+			width: 1500px;
+			height: 1500px;
+			z-index: 2;
+			border-radius: 50%;
+			background: radial-gradient(rgba(1, 21, 169, 0.5), transparent 70%);
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			z-index: -2;
+			background: rgba(0,0,0,.8);
+		}
+	}
+
+	.main {
+		position: relative;
+		min-height: calc(100vh - 239px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.center {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+
+		@media (max-width: 767px) {
+			min-height: calc(100vh - 245px);
+		}
+	}
+
+	.categories {
+		width: 610px;
+		height: 560px;
+		position: relative;
+		z-index: 3;
+
+		li {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			a {
+				display: block;
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				left: 2px;
+				bottom: 2px;
+				border-radius: 50%;
+				z-index: 3;
+				user-select: none;
+			}
+
+			&:hover a:after {opacity: 1;}
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				transition: all 0.3s;
+				position: relative;
+				z-index: 5;
+			}
+
+			span {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				z-index: 4;
+				transform: translate(-50%, -100%);
+				opacity: 0;
+				transition: all 0.3s;
+				font-size: 25px;
+				pointer-events: none;
+			}
+
+			&:hover span {
+				transform: translate(-50%, 100%);
+				margin-top: 25px;
+				display: inline-block;
+				opacity: 1;
+			}
+
+			&:nth-child(1) {transform: translate(-100%, -137%);}
+			&:nth-child(2) {transform: translate(0%, -137%);}
+			&:nth-child(3) {transform: translate(50%, -50%);}
+			&:nth-child(4) {transform: translate(0%, 37%);}
+			&:nth-child(5) {transform: translate(-100%, 37%);}
+			&:nth-child(6) {transform: translate(-150%, -50%);}
+		}
+
+		@media (max-width: 1500px) {
+			zoom: 0.8;
+		}
+
+		@media (max-width: 1300px) {
+			zoom: 0.7;
+		}
+
+		@media (max-width: 1200px) {
+			zoom: 0.6;
+		}
+
+		@media (max-width: 767px) {
+			zoom: 0.5;
+		}
+	}
+}
+

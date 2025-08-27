@@ -36,12 +36,8 @@
         @include('partials.entry-meta')
     </header>
 
-    <div class="single-content">
-        <aside class="js-aside"></aside>
-
-        <div class="e-content js-content">
-            @php(the_content())
-        </div>
+    <div class="e-content">
+        @php(the_content())
     </div>
 
     @if ($pagination())

@@ -1,20 +1,44 @@
-@if (!empty($subcategories) && sizeof($subcategories))
+@php 
+$current_category = get_queried_object();
+
+$categories = get_categories([
+    'hide_empty' => false,
+    'parent'     => 0,
+]);
+
+if (!empty($categories)) {
+    $ids = array_column($categories, 'term_id');
+    $activeIndex = array_search($current_category->term_id ?? null, $ids);
+
+    if ($activeIndex !== false) {
+        $middleIndex = floor(count($categories) / 2);
+
+        $activeCategory = $categories[$activeIndex];
+        unset($categories[$activeIndex]);
+        $categories = array_values($categories);
+
+        array_splice($categories, $middleIndex, 0, [$activeCategory]);
+    }
+}
+@endphp
+
+@if (!empty($categories))
     <div class="scroll-horizontal">
-        <ul class="subcategories">
-            @foreach ($subcategories as $subcategory)
+        <ul class="categories-horizontal">
+            @foreach ($categories as $category)
                 @php
-                    $image = get_field('image', "term_{$subcategory->term_id}");
-                    $active = ($current_category->slug == $subcategory->slug) ? 'active' : '';
+                    $image = get_field('image', "term_{$category->term_id}");
+                    $is_active = ($current_category && $current_category->term_id == $category->term_id);
                 @endphp
                 
-                <li class="{{ $active }}">
-                    <a href="{{ get_category_link($subcategory) }}">
+                <li class="{{ $is_active ? 'active' : '' }}">
+                    <a href="{{ get_category_link($category) }}">
                         @if($image)
                             <div class="image">
-                                <img width="100" src="{{ $image['url'] }}" alt="{{ $subcategory->name }}" />
+                                <img width="100" src="{{ $image['url'] }}" alt="{{ $category->name }}" />
                             </div>
                         @endif
-                        <span>{{ $subcategory->name }}</span>
+                        <span>{{ $category->name }}</span>
                     </a>
                 </li>
             @endforeach

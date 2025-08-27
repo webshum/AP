@@ -11,7 +11,7 @@ body {
 	background: #000;
 	color: #fff;
 	font-family: "Lato", sans-serif;
-  font-size: 16px;
+  	font-size: 16px;
 	line-height: 1.5;
 	
 	@media (max-width: 767px) {
@@ -77,8 +77,6 @@ h6 {font-size: 10px;}
 .scroll-horizontal {
 	width: 100%;
 	overflow-x: auto;
-	margin-left: -15px;
-	margin-right: -15px;
 	padding: 0 15px;
 
 	scrollbar-width: none;
@@ -89,12 +87,83 @@ h6 {font-size: 10px;}
 	}
 }
 
-@import "./header.css";
-@import "./home.css";
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+
+    a {transition: all 0.3s;}
+
+    .current {color: red;}
+    a:hover {color: red;}
+
+    .prev, .next {font-size: 20px;}
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0 30px;
+    align-items: start;
+    margin-top: 50px;
+
+    aside {
+        position: sticky;
+        top: 50px;
+    }
+
+    @media (max-width: 991px) {
+        margin-top: 25px;
+    }
+
+    @media (max-width: 767px) {
+        grid-template-columns: 35px 1fr;
+        gap: 0 15px;
+    }
+}
+
+.single-post, .archive {
+	background: url(../images/home-bg.jpg) no-repeat center center;
+	background-size: cover;
+
+    #app {
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -500px;
+            left: -500px;
+            width: 1500px;
+            height: 1500px;
+            z-index: 2;
+            border-radius: 50%;
+            background: radial-gradient(rgba(1, 21, 169, 0.5), transparent 70%);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -2;
+            background: rgba(0,0,0,.8);
+        }
+    }
+}
+
+@import "./sections/header.css";
+@import "./front-page.css";
 @import "./category.css";
-@import "./post.css";
+@import "./single.css";
 @import "./page.css";
-@import "./footer.css";
+@import "./sections/footer.css";
 @import "./animation.css";
 
 @source "../views/";

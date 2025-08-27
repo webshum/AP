@@ -2,24 +2,6 @@
 
 @section('content')
 <div id="categories">
-	<div class="main-stars">
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-	</div>
-
 	<div class="hexagon-wrapper">
 		<div class="cursor"></div>
 
