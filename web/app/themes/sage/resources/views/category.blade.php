@@ -17,24 +17,6 @@
 
 @section('content')
 <div class="center">
-    <div class="main-stars">
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-		<div class="firefly"></div>
-	</div>
-    
     @include('components.categories')
 
     <div class="main-content">
