@@ -13,12 +13,13 @@ body {
 	font-family: "Lato", sans-serif;
   	font-size: 16px;
 	line-height: 1.5;
-    border: 10px solid red;
 	
 	@media (max-width: 767px) {
         font-size: 14px;
     }
 }
+
+.hexagon-wrapper{border: 10px solid red;}
 
 a {text-decoration: none;}
 
