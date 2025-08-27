@@ -96,6 +96,7 @@
 				transition: all 0.3s;
 				font-size: 25px;
 				pointer-events: none;
+				white-space: nowrap;
 			}
 
 			&:hover span {
