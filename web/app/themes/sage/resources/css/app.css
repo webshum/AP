@@ -28,7 +28,9 @@ body {
 	bottom: 0;
 	z-index: 1;
 	opacity: 0.3;
+}
 
+.hexagon-wrapper {
 	.cursor {
 		width: 350px;
 		height: 350px;
