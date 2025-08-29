@@ -4,7 +4,13 @@
         .center {flex-direction: column;}
     }
 
-    #app {overflow: hidden;}
+    @media (max-width: 1200px) {
+        #app:before {
+            right: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
 }
 
 .post-category {

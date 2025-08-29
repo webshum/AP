@@ -165,14 +165,21 @@ h6 {font-size: 10px;}
 
 .scroll-horizontal {
 	width: 100%;
-	overflow-x: auto;
 	padding: 0 15px;
+    position: sticky;
+    top: -40px;
 
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 
 	&::-webkit-scrollbar {
 		display: none;
+	}
+
+	
+	@media (max-width: 767px) {
+		position: static;
+		overflow-x: auto;
 	}
 }
 
