@@ -5,8 +5,8 @@
             @php
                 $active = ($current_category->slug == $subcategory->slug) ? 'active' : '';
             @endphp
-            
-            <li class="{{ $active }}">
+
+            <li class="{{ $active }}" data-id="sub-category-{{ $count }}">
                 <a href="#sub-category-{{ $count }}">
                     <span>{{ $subcategory->name }}</span>
                 </a>

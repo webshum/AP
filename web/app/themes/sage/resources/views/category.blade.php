@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @php
     $subcategories = [];
-    $posts = [];
     $current_category = get_queried_object();
     
     if (!empty($current_category)) {

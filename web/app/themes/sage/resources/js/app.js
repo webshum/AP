@@ -6,6 +6,8 @@ import.meta.glob([
 ]);
 
 window.onload = () => {
+    if (document.querySelector('.scroll-horizontal')) headerSticky();
+    if (document.querySelector('.hexagon-categories')) anchor();
     if (document.querySelector('.cursor')) cursor();
 
     document.querySelector('.menu-open').onclick = e => {
@@ -13,6 +15,46 @@ window.onload = () => {
 
         document.body.classList.toggle('menu-opened');
     }
+}
+
+function headerSticky() {
+    const sticky = document.querySelector('.scroll-horizontal');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                sticky.classList.add('is-sticky');
+            } else {
+                sticky.classList.remove('is-sticky');
+            }
+        });
+    }, {
+        threshold: [1.0],
+        rootMargin: "-1px 0px 0px 0px"
+    });
+
+    observer.observe(sticky);
+}
+
+function anchor() {
+    const sections = document.querySelectorAll(".post-category");
+    const navLinks = document.querySelectorAll(".hexagon-categories li");
+
+    const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                console.log(entry.target.id);
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove("active"));
+
+                    const activeLink = document.querySelector(`.hexagon-categories li[data-id="${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add("active");
+                }
+            });
+        },
+        { threshold: 0.5 } 
+    );
+
+    sections.forEach(section => observer.observe(section));
 }
 
 function cursor() {
@@ -26,82 +68,6 @@ function cursor() {
         curs.style.top = (y - 175) + "px";
         curs.style.opacity = "1";
     });
-}
-
-function addAnchores() {
-    const article = document.querySelector(".js-content");
-    const aside = document.querySelector(".js-aside");
-
-    if (!article || !aside) return;
-
-    const headings = Array.from(article.querySelectorAll("h1, h2, h3, h4, h5, h6"));
-    if (!headings.length) return;
-
-    // ---------- TOC (aside) ----------
-    const ul = document.createElement("ul");
-    ul.classList.add("hexagon-categories");
-
-    headings.forEach((heading, index) => {
-        if (!heading.id) heading.id = "heading-" + index;
-
-        const li = document.createElement("li");
-        li.classList.add(heading.tagName.toLowerCase());
-
-        const a = document.createElement("a");
-        a.href = "#" + heading.id;
-        a.textContent = heading.textContent;
-
-        const i = document.createElement("a");
-        i.href = "#" + heading.id;
-        i.classList.add("ic-hexagon");
-
-        li.appendChild(a);
-        li.appendChild(i);
-        ul.appendChild(li);
-    });
-
-    // очистимо, щоб не плодити дублікати
-    aside.innerHTML = "";
-    aside.appendChild(ul);
-
-    // ---------- Розбиття контенту від анхора до анхора ----------
-    // Використовуємо Range, щоб коректно вирізати вміст незалежно від вкладеності елементів
-    const blocksFrag = document.createDocumentFragment();
-
-    for (let i = 0; i < headings.length; i++) {
-        const start = headings[i];
-        const next = headings[i + 1] || null;
-
-        if (!start.isConnected) continue;
-
-        const range = document.createRange();
-        range.setStartBefore(start);
-
-        if (next && next.isConnected) {
-            range.setEndBefore(next);
-        } else if (article.lastChild) {
-            range.setEndAfter(article.lastChild);
-        } else {
-            // якщо з якоїсь причини немає lastChild — пропускаємо
-            continue;
-        }
-
-        const block = document.createElement("div");
-        block.classList.add("anchor-block");
-        block.dataset.anchor = start.id;
-
-        const contents = range.extractContents(); // вирізає зі статті від заголовка до наступного заголовка
-        block.appendChild(contents);
-        blocksFrag.appendChild(block);
-    }
-
-    // Замінюємо контент статті тільки на зібрані блоки (від анхора до анхора)
-    article.innerHTML = "";
-    article.appendChild(blocksFrag);
-}
-
-if (document.querySelector(".js-content")) {
-    addAnchores();
 }
 
 const app = createApp({});

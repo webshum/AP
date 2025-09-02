@@ -167,7 +167,8 @@ h6 {font-size: 10px;}
 	width: 100%;
 	padding: 0 15px;
     position: sticky;
-    top: -40px;
+    top: 0px;
+	transition: all 0.3s linear;
 
 	scrollbar-width: none;
 	-ms-overflow-style: none;
@@ -176,6 +177,17 @@ h6 {font-size: 10px;}
 		display: none;
 	}
 
+	&.is-sticky {
+		padding-top: 10px;
+
+		ul {
+			zoom: 0.5;
+			background-color: #000;
+			border-radius: 30px;
+			padding-top: 0;
+			border: 5px solid red;
+		}
+	}
 	
 	@media (max-width: 767px) {
 		position: static;
@@ -207,7 +219,7 @@ h6 {font-size: 10px;}
 
     aside {
         position: sticky;
-        top: 50px;
+        top: 120px;
     }
 
     @media (max-width: 991px) {

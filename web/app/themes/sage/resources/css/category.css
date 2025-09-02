@@ -240,12 +240,14 @@
         z-index: -1;
         pointer-events: none;
     }
-    li:hover a:first-child {
+    li:hover a:first-child,
+    li.active a:first-child {
         left: 110%;
         opacity: 1;
         margin-left: 40px;
     }
-    li:hover .ic-hexagon{transform: scale(1.2);}
+    li:hover .ic-hexagon,
+    li.active .ic-hexagon {transform: scale(1.2);}
 
     li:nth-child(1) a { background: #ff354c; } 
     li:nth-child(2) a { background: #ff9900; }
