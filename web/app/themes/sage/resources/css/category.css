@@ -224,10 +224,6 @@
     }
 }
 
-.logged-in {
-    .categories-horizontal.is-sticky {top: 40px;} 
-}
-
 .hexagon-categories {
     position: sticky;
     & + ul {margin-top: 20px;}
