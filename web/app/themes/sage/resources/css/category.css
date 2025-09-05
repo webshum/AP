@@ -240,8 +240,7 @@
         z-index: -1;
         pointer-events: none;
     }
-    li:hover a:first-child,
-    li.active a:first-child {
+    li:hover a:first-child {
         left: 110%;
         opacity: 1;
         margin-left: 40px;
