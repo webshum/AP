@@ -225,7 +225,7 @@
 }
 
 .logged-in {
-    .categories-horizontal.is-sticky {padding-top: 40px;} 
+    .categories-horizontal.is-sticky {top: 40px;} 
 }
 
 .hexagon-categories {
