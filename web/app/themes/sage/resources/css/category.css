@@ -1,6 +1,7 @@
 .archive {
     .main {
         align-items: start;
+        padding-top: 50px;
         .center {flex-direction: column;}
     }
 
@@ -129,7 +130,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 50px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    zoom: 0.6;
+    transition: all 0.3s;
+    max-height: 120px;
+
+    &.is-sticky {
+        background-color: #000;
+        a span {display: none;}
+    }
 
     a {
         display: block;
@@ -207,17 +219,13 @@
         }
     }
 
-    @media (max-width: 1600px) {
-        zoom: 0.8;
-    }
-
-    @media (max-width: 1600px) {
-        zoom: 0.7;
-    }
-
     @media (max-width: 550px) {
-        justify-content: start;
+        a .image {max-width: 70px;}
     }
+}
+
+.logged-in {
+    .categories-horizontal.is-sticky {padding-top: 40px;} 
 }
 
 .hexagon-categories {

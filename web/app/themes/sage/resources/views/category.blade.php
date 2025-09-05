@@ -16,9 +16,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="center">
-    @include('components.categories')
+@include('components.categories')
 
+<div class="center">
     <div class="main-content">
         <aside>
             @include('components.subcategories')

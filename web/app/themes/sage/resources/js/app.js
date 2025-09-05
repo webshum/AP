@@ -6,7 +6,7 @@ import.meta.glob([
 ]);
 
 window.onload = () => {
-    if (document.querySelector('.scroll-horizontal')) headerSticky();
+    if (document.querySelector('.categories-horizontal')) headerSticky();
     if (document.querySelector('.hexagon-categories')) anchor();
     if (document.querySelector('.cursor')) cursor();
 
@@ -18,11 +18,13 @@ window.onload = () => {
 }
 
 function headerSticky() {
-    const sticky = document.querySelector('.scroll-horizontal');
+    const sticky = document.querySelector('.categories-horizontal');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            console.log(entry);
             if (!entry.isIntersecting) {
+
                 sticky.classList.add('is-sticky');
             } else {
                 sticky.classList.remove('is-sticky');
@@ -40,21 +42,43 @@ function anchor() {
     const sections = document.querySelectorAll(".post-category");
     const navLinks = document.querySelectorAll(".hexagon-categories li");
 
-    const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                console.log(entry.target.id);
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => link.classList.remove("active"));
+    if (!sections.length || !navLinks.length) {
+        console.warn("No sections or nav links found.");
+        return;
+    }
 
-                    const activeLink = document.querySelector(`.hexagon-categories li[data-id="${entry.target.id}"]`);
-                    if (activeLink) activeLink.classList.add("active");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach((link) => link.classList.remove("active"));
+
+                    const activeLink = document.querySelector(
+                        `.hexagon-categories li[data-id="${entry.target.id}"]`
+                    );
+
+                    if (activeLink) {
+                        activeLink.classList.add("active");
+                    } else {
+                        console.warn(`No link found for section ID: ${entry.target.id}`);
+                    }
                 }
             });
         },
-        { threshold: 0.5 } 
+        {
+            root: null,
+            rootMargin: "-20% 0px -20% 0px",
+            threshold: 0.2,
+        }
     );
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach((section) => {
+        if (section.id) {
+            observer.observe(section);
+        } else {
+            console.warn("Section missing ID:", section);
+        }
+    });
 }
 
 function cursor() {

@@ -1,4 +1,6 @@
 .single-post {
+    .main {padding-top: 50px;}
+
     .content {
         background-color: #fff;
         border-radius: 20px;

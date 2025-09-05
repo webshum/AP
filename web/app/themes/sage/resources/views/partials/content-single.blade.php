@@ -1,5 +1,3 @@
-@include('components.categories')
-
 <div class="main-content">
     <aside>
         @include('components.subcategories')

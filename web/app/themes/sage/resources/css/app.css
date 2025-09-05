@@ -163,44 +163,6 @@ h6 {font-size: 10px;}
 	}
 }
 
-.scroll-horizontal {
-	width: 100%;
-	padding: 0 15px;
-    position: sticky;
-    top: 0px;
-	transition: all 0.3s linear;
-
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-
-	&::-webkit-scrollbar {
-		display: none;
-	}
-
-	&.is-sticky {
-		padding-top: 10px;
-
-		ul {
-			zoom: 0.5;
-			background-color: #000;
-			border-radius: 30px;
-			padding-top: 0;
-			border: 5px solid red;
-
-			a span {display: none;}
-		}
-	}
-	
-	@media (max-width: 767px) {
-		position: static;
-		overflow-x: auto;
-	}
-}
-
-.logged-in {
-	.scroll-horizontal.is-sticky {padding-top: 40px;} 
-}
-
 .pagination {
     display: flex;
     align-items: center;

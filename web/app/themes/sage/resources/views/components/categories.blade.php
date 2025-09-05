@@ -29,25 +29,23 @@ if (!empty($categories)) {
 @endphp
 
 @if (!empty($categories))
-    <div class="scroll-horizontal">
-        <ul class="categories-horizontal">
-            @foreach ($categories as $category)
-                @php
-                    $image = get_field('image', "term_{$category->term_id}");
-                    $is_active = ($current_category->term_id && $current_category->term_id == $category->term_id);
-                @endphp
-                
-                <li class="{{ $is_active ? 'active' : '' }}">
-                    <a href="{{ get_category_link($category) }}">
-                        @if($image)
-                            <div class="image">
-                                <img width="100" src="{{ $image['url'] }}" alt="{{ $category->name }}" />
-                            </div>
-                        @endif
-                        <span>{{ $category->name }}</span>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+    <ul class="categories-horizontal">
+        @foreach ($categories as $category)
+            @php
+                $image = get_field('image', "term_{$category->term_id}");
+                $is_active = ($current_category->term_id && $current_category->term_id == $category->term_id);
+            @endphp
+            
+            <li class="{{ $is_active ? 'active' : '' }}">
+                <a href="{{ get_category_link($category) }}">
+                    @if($image)
+                        <div class="image">
+                            <img width="100" src="{{ $image['url'] }}" alt="{{ $category->name }}" />
+                        </div>
+                    @endif
+                    <span>{{ $category->name }}</span>
+                </a>
+            </li>
+        @endforeach
+    </ul>
 @endif
