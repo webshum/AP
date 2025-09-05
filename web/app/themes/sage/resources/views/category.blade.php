@@ -1,4 +1,3 @@
-@extends('layouts.app')
 @php
     $subcategories = [];
     $current_category = get_queried_object();
@@ -13,6 +12,8 @@
         $subcategories = get_categories($args);
     }
 @endphp
+
+@extends('layouts.app')
 
 @section('content')
 <div class="center">

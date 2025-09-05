@@ -1,5 +1,11 @@
 @php 
-$current_category = get_queried_object();
+$current_category = null;
+
+if (!empty(get_queried_object()->term_id)) {
+    $current_category = get_queried_object();
+} else {
+    $current_category = get_category(get_the_category()[0]->parent);
+}
 
 $categories = get_categories([
     'hide_empty' => false,
@@ -28,7 +34,7 @@ if (!empty($categories)) {
             @foreach ($categories as $category)
                 @php
                     $image = get_field('image', "term_{$category->term_id}");
-                    $is_active = ($current_category && $current_category->term_id == $category->term_id);
+                    $is_active = ($current_category->term_id && $current_category->term_id == $category->term_id);
                 @endphp
                 
                 <li class="{{ $is_active ? 'active' : '' }}">
