@@ -1,5 +1,6 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import CategoryList from './components/CategoryList.vue';
+import AiAssistant from './components/AiAssistant.vue';
 import.meta.glob([
   '../images/**',
   '../fonts/**',
@@ -22,7 +23,6 @@ function headerSticky() {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            console.log(entry);
             if (!entry.isIntersecting) {
 
                 sticky.classList.add('is-sticky');
@@ -97,3 +97,7 @@ function cursor() {
 const app = createApp({});
 app.component('category-list', CategoryList);
 app.mount('#categories');
+
+const ai = createApp({});
+ai.component('ai-assistant', AiAssistant);
+ai.mount('#ai');

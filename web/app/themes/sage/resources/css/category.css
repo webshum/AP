@@ -17,19 +17,20 @@
 .post-category {
     border-radius: 30px;
     padding: 30px;
-    border: 3px solid red;
-    background-color: #fff;
+    border: 1px solid rgba(255,255,255,.2);
+    background: linear-gradient(90deg, rgba(1, 21, 169, 0.5), transparent 100%);
+    backdrop-filter: blur(5px);
 
     & + .post-category {margin-top: 30px;}
 
     .article {
-        color: #000;
+        color: #fff;
         padding-bottom: 30px;
         margin-bottom: 30px;
         display: flex;
         gap: 0 30px;
         font-weight: 300;
-        border-bottom: 1px solid #f3f3f3;
+        border-bottom: 1px solid rgba(255,255,255,.1);
 
         .image {
             width: 100%;
@@ -81,21 +82,22 @@
         }
     }
 
-    &:nth-child(1) { border-color: #ff354c; } 
-    &:nth-child(2) { border-color: #ff9900; }
-    &:nth-child(3) { border-color: #ffee00; } 
-    &:nth-child(4) { border-color: #289f0c; } 
-    &:nth-child(5) { border-color: #008df0; }
-    &:nth-child(6) { border-color: #0063ee; } 
-    &:nth-child(7) { border-color: #8273e9; } 
+    &:nth-child(1)  { border-color: rgba(255, 53, 76, 0.2); }   
+    &:nth-child(2)  { border-color: rgba(255, 153, 0, 0.2); }   
+    &:nth-child(3)  { border-color: rgba(255, 238, 0, 0.2); }   
+    &:nth-child(4)  { border-color: rgba(40, 159, 12, 0.2); }   
+    &:nth-child(5)  { border-color: rgba(0, 141, 240, 0.2); }   
+    &:nth-child(6)  { border-color: rgba(0, 99, 238, 0.2); }    
+    &:nth-child(7)  { border-color: rgba(130, 115, 233, 0.2); } 
 
-    &:nth-child(8) { border-color: #ff354c; } 
-    &:nth-child(9) { border-color: #ff9900; }
-    &:nth-child(10) { border-color: #ffee00; } 
-    &:nth-child(11) { border-color: #289f0c; } 
-    &:nth-child(12) { border-color: #008df0; }
-    &:nth-child(13) { border-color: #0063ee; } 
-    &:nth-child(14) { border-color: #8273e9; } 
+    &:nth-child(8)  { border-color: rgba(255, 53, 76, 0.2); }  
+    &:nth-child(9)  { border-color: rgba(255, 153, 0, 0.2); }  
+    &:nth-child(10) { border-color: rgba(255, 238, 0, 0.2); }  
+    &:nth-child(11) { border-color: rgba(40, 159, 12, 0.2); }  
+    &:nth-child(12) { border-color: rgba(0, 141, 240, 0.2); }  
+    &:nth-child(13) { border-color: rgba(0, 99, 238, 0.2); }   
+    &:nth-child(14) { border-color: rgba(130, 115, 233, 0.2); }
+
 
     @media (max-width: 991px) {
         border-radius: 20px;

@@ -243,6 +243,7 @@ h6 {font-size: 10px;}
 @import "./category.css";
 @import "./single.css";
 @import "./page.css";
+@import "./AiAssistant.css";
 @import "./sections/footer.css";
 
 @source "../views/";

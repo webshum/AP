@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite';
 import laravel from 'laravel-vite-plugin'
+import svgLoader from 'vite-svg-loader';
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   base: '/app/themes/sage/public/build/',
   plugins: [
+    svgLoader(),
     tailwindcss(),
     vue(),
     laravel({

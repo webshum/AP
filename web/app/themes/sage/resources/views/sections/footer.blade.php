@@ -1,3 +1,7 @@
+<div id="ai">
+    <ai-assistant></ai-assistant>
+</div>
+
 <footer class="footer">
     <div class="center">
         <address class="address">
