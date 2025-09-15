@@ -71,7 +71,7 @@
 	.dialog {
 		padding: 30px 0 50px 0;
 		position: relative;
-		max-height: calc(100vh - 180px);
+		max-height: calc(100vh - 250px);
 		overflow-y: auto;
 		& > div + div {margin-top: 20px;}
 	}
