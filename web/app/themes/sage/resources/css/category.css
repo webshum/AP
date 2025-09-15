@@ -17,8 +17,8 @@
 .post-category {
     border-radius: 30px;
     padding: 30px;
-    border: 1px solid rgba(255,255,255,.2);
-    background: linear-gradient(90deg, rgba(1, 21, 169, 0.5), transparent 100%);
+    border: 1px solid rgba(255,255,255,.5);
+    background-color: rgba(9, 19, 92, 0.5);
     backdrop-filter: blur(5px);
 
     & + .post-category {margin-top: 30px;}
@@ -82,21 +82,21 @@
         }
     }
 
-    &:nth-child(1)  { border-color: rgba(255, 53, 76, 0.2); }   
-    &:nth-child(2)  { border-color: rgba(255, 153, 0, 0.2); }   
-    &:nth-child(3)  { border-color: rgba(255, 238, 0, 0.2); }   
-    &:nth-child(4)  { border-color: rgba(40, 159, 12, 0.2); }   
-    &:nth-child(5)  { border-color: rgba(0, 141, 240, 0.2); }   
-    &:nth-child(6)  { border-color: rgba(0, 99, 238, 0.2); }    
-    &:nth-child(7)  { border-color: rgba(130, 115, 233, 0.2); } 
+    &:nth-child(1)  { border-color: rgba(255, 53, 76, 0.5); }   
+    &:nth-child(2)  { border-color: rgba(255, 153, 0, 0.5); }   
+    &:nth-child(3)  { border-color: rgba(255, 238, 0, 0.5); }   
+    &:nth-child(4)  { border-color: rgba(40, 159, 12, 0.5); }   
+    &:nth-child(5)  { border-color: rgba(0, 141, 240, 0.5); }   
+    &:nth-child(6)  { border-color: rgba(0, 99, 238, 0.5); }    
+    &:nth-child(7)  { border-color: rgba(130, 115, 233, 0.5); } 
 
-    &:nth-child(8)  { border-color: rgba(255, 53, 76, 0.2); }  
-    &:nth-child(9)  { border-color: rgba(255, 153, 0, 0.2); }  
-    &:nth-child(10) { border-color: rgba(255, 238, 0, 0.2); }  
-    &:nth-child(11) { border-color: rgba(40, 159, 12, 0.2); }  
-    &:nth-child(12) { border-color: rgba(0, 141, 240, 0.2); }  
-    &:nth-child(13) { border-color: rgba(0, 99, 238, 0.2); }   
-    &:nth-child(14) { border-color: rgba(130, 115, 233, 0.2); }
+    &:nth-child(8)  { border-color: rgba(255, 53, 76, 0.5); }  
+    &:nth-child(9)  { border-color: rgba(255, 153, 0, 0.5); }  
+    &:nth-child(10) { border-color: rgba(255, 238, 0, 0.5); }  
+    &:nth-child(11) { border-color: rgba(40, 159, 12, 0.5); }  
+    &:nth-child(12) { border-color: rgba(0, 141, 240, 0.5); }  
+    &:nth-child(13) { border-color: rgba(0, 99, 238, 0.5); }   
+    &:nth-child(14) { border-color: rgba(130, 115, 233, 0.5); }
 
 
     @media (max-width: 991px) {
@@ -142,7 +142,8 @@
     max-height: 120px;
 
     &.is-sticky {
-        background-color: #000;
+        background-color: rgba(9, 19, 92, 0.5);
+        backdrop-filter: blur(5px);
         a span {display: none;}
     }
 
@@ -279,11 +280,11 @@
         left: 50%;
         bottom: 0;
         z-index: -1;
-        width: 2px;
+        width: 1px;
         background: #37b4ff;
     }
 
     @media (max-width: 767px) {
-        zoom: 0.6;
+        zoom: 0.85;
     }
 }
