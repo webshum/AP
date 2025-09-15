@@ -51,7 +51,7 @@
             line-height: 1.2;
 
             a {
-                color: #0678cc;
+                color: #fea603;
                 transition: all 0.3s ease;
                 &:hover {color: red;}
             }
@@ -64,7 +64,7 @@
         .read-more {
             display: inline-block;
             line-height: 0;
-            color: #0678cc;
+            color: #ef251d;
 
             svg {
                 width: 30px;
