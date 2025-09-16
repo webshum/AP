@@ -9,6 +9,7 @@ import.meta.glob([
 window.onload = () => {
     if (document.querySelector('.categories-horizontal')) headerSticky();
     if (document.querySelector('.hexagon-categories')) anchor();
+    if (document.querySelector('.faq-accordeon')) accordion_toggle();
     if (document.querySelector('.cursor')) cursor();
 
     document.querySelector('.menu-open').onclick = e => {
@@ -92,6 +93,43 @@ function cursor() {
         curs.style.top = (y - 175) + "px";
         curs.style.opacity = "1";
     });
+}
+
+function accordion_toggle() {
+    let accordeon = document.querySelectorAll('.accordeon');
+    let flag = true;
+
+    if (accordeon != null) {
+        for (let i = 0; i < accordeon.length; i++) {
+            const item = accordeon[i].querySelectorAll('.item-accordeon');
+
+            for (let j = 0; j < item.length; j++) {
+                if (item[j].classList.contains('active')) {
+                    let inner = item[j].querySelector('.inner');
+                    let content = item[j].querySelector('.content-accordeon'); 
+                    content.style.height = (inner.clientHeight + 2) + 'px';
+                }
+
+                let btn = item[j].querySelector('.btn-accordeon');
+                
+                btn.addEventListener('click', openAccordeon);
+            }
+        }
+    }
+
+    function openAccordeon(e) {
+        let item = this.closest('.accordeon').querySelectorAll('.item-accordeon');
+        let inner = this.parentNode.querySelector('.inner');
+        let content = this.parentNode.querySelector('.content-accordeon');  
+
+        if (this.parentNode.classList.contains('active')) {            
+            this.parentNode.classList.remove('active');
+            content.removeAttribute('style');
+        } else {   
+            this.parentNode.classList.add('active');
+            content.style.height = (inner.clientHeight + 2) + 'px';
+        }    
+    }
 }
 
 const app = createApp({});

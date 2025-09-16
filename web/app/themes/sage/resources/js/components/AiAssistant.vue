@@ -53,16 +53,15 @@ async function send() {
 				role: 'assistant',
 				content: data.choices[0].message.content
 			});
-			
-			prompt.value = '';
-			preloader.value = false;
-
-			await nextTick();
-			scrollToBottom();
 		}
 	} catch (e) {
 		console.error(e);
+	} finally {
 		preloader.value = false;
+		prompt.value = '';
+
+		await nextTick();
+		scrollToBottom();
 	}
 }
 
@@ -73,17 +72,24 @@ function scrollToBottom() {
 }
 
 async function saveAnswer(index) {
-	const endpoint = `${url}/faqs`;
+	preloader.value = true;
 
-	const res = await fetch(endpoint, {
-		method: 'POST',
-		headers: {"Content-Type": "application/json"},
-		body: JSON.stringify({title: 'Hello', content: "<p>Hello</p>"})
-	});
+	try {
+		const endpoint = `${url}/faqs`;
 
-	if (res.ok) {
-		const data = await res.json();
-		console.log(data);
+		const res = await fetch(endpoint, {
+			method: 'POST',
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify(dialog.value[index])
+		});
+
+		if (res.ok) {
+			const data = await res.json();
+		}
+	} catch (e) {
+		console.error(e);
+	} finally {
+		preloader.value = false;
 	}
 }
 </script>
@@ -132,7 +138,7 @@ async function saveAnswer(index) {
 		<div class="ask">
 			<PreloaderIcon class="preloader" v-if="preloader" />
 
-			<input v-model="prompt" class="text-input" type="text" placeholder="Ask a question...">
+			<input v-model="prompt" class="text-input" type="text" placeholder="Zadaj pytanie...">
 
 			<button @click.prevent="send()">
 				<SendIcon class="w-7 h-7" />

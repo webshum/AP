@@ -10,8 +10,18 @@ class FaqController {
 	}
 
 	public function store(Request $request) {
-		$title = $request->get('title');
-		$content = $request->get('content');
+		$title = $request[0]['content'] ?? null;
+		$content = $request[1]['content'] ?? null;
+
+		$existing_post = get_page_by_title($title, OBJECT, 'faq');
+
+		if ($existing_post) {
+			return response()->json([
+	            'status' => 'error',
+	            'message' => 'FAQ with this title already exists',
+	            'id' => $existing_post->ID
+	        ], 409);
+		}
 
 		$post_id = wp_insert_post([
 			'post_type' => 'faq',
@@ -30,7 +40,7 @@ class FaqController {
 		return response()->json([
 			'status' => 'success',
 			'id' => $post_id
-		], 2001)
+		], 201);
 	}
 
 	public function show($id) {
