@@ -9,6 +9,9 @@ class ChatController {
 	public function handle(Request $request) {
 		$endpoint = 'https://api.openai.com/v1/chat/completions';
 		$messages = $request->input('message', []);
+		$category = $request->input('category');
+		$prompts = config("prompts");
+		$system = !empty($prompts[$category]) ? $prompts[$category] : $prompts['main'];
 		$flatMessages = [];
 
 		foreach ($messages as $pair) {
@@ -23,7 +26,7 @@ class ChatController {
 
 		array_unshift($flatMessages, [
 			'role' => 'system', 
-            'content' => 'Ти — AI асистент для сайту webshum. Відповідай коротко і зрозуміло.'
+            'content' => $system
 		]);
 
 		$response = Http::withToken(env('OPENAI_API_KEY'))

@@ -1,5 +1,14 @@
+@php
+    $current_category = get_queried_object();
+    $category = '';
+
+    if (!empty($current_category) && !empty($current_category->slug)) {
+        $category = $current_category->slug;
+    }
+@endphp
+
 <div id="ai">
-    <ai-assistant></ai-assistant>
+    <ai-assistant :category="'{{ $category }}'"></ai-assistant>
 </div>
 
 <footer class="footer">

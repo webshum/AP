@@ -1,6 +1,6 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import CategoryList from './components/CategoryList.vue';
-import AiAssistant from './components/AiAssistant.vue';
+import AiAssistant from './components/AiAssistant/AiAssistant.vue';
 import.meta.glob([
   '../images/**',
   '../fonts/**',

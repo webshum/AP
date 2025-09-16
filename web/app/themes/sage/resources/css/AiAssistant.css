@@ -99,6 +99,10 @@
 			cursor: pointer;
 			transition: all 0.3s;
 			&:hover {color: #fff;}
+			&.disabled {
+				pointer-events: none;
+				opacity: 0.5;
+			}
 		}
 	}
 	.question {
