@@ -15,7 +15,9 @@ body {
 	line-height: 1.5;
 }
 
-#app {min-height: 100vh;}
+#app {
+	min-height: 100vh;
+}
 
 .hexagon-wrapper {
 	position: absolute;
@@ -204,8 +206,8 @@ h6 {font-size: 10px;}
 	.main-content aside {top: 150px;} 
 }
 
-.single-post, .archive, .faq {
-	background: url(../images/home-bg.jpg) no-repeat center center;
+.single-post, .archive, .page {
+	background: url(../images/home-bg.jpg) no-repeat center center fixed;
 	background-size: cover;
 
     #app {
@@ -214,7 +216,7 @@ h6 {font-size: 10px;}
         &:before {
             content: '';
             display: block;
-            position: absolute;
+            position: fixed;
             top: -500px;
             left: -500px;
             width: 1500px;
