@@ -99,6 +99,48 @@ function get_categories_api() {
     return rest_ensure_response($data);
 }
 
+/*
+|--------------------------------------------------------------------------
+| Seeder posts
+|--------------------------------------------------------------------------
+*/
 if (defined('WP_CLI') && WP_CLI) {
     WP_CLI::add_command('seed-posts', \App\Seeders\PostSeeder::class);
 }
+
+/*
+|--------------------------------------------------------------------------
+| Register post type
+|--------------------------------------------------------------------------
+*/
+add_action('init', function() {
+    $labels = [
+        'name'               => 'FAQ',
+        'singular_name'      => 'FAQ',
+        'menu_name'          => 'FAQ',
+        'name_admin_bar'     => 'FAQ',
+        'add_new'            => 'Додати новий',
+        'add_new_item'       => 'Додати новий FAQ',
+        'new_item'           => 'Новий FAQ',
+        'edit_item'          => 'Редагувати FAQ',
+        'view_item'          => 'Переглянути FAQ',
+        'all_items'          => 'Всі FAQ',
+        'search_items'       => 'Шукати FAQ',
+        'not_found'          => 'FAQ не знайдено',
+        'not_found_in_trash' => 'У кошику FAQ не знайдено',
+    ];
+
+    $args = [
+        'labels'             => $labels,
+        'public'             => true,
+        'show_in_rest'       => true,
+        'rest_base'          => 'faqs',
+        'has_archive'        => true,
+        'rewrite'            => ['slug' => 'faq'],
+        'supports'           => ['title', 'editor'],
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-editor-help',
+    ];
+
+    register_post_type('faq', $args);
+});
