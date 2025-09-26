@@ -27,7 +27,7 @@ class FaqController {
 			'post_type' => 'faq',
 			'post_title' => $title,
 			'post_content' => $content,
-			'post_status' => 'publish'
+			'post_status' => 'draft'
 		]);
 
 		if (is_wp_error($post_id)) {

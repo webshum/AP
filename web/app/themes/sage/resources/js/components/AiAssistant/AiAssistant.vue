@@ -22,13 +22,12 @@ const props = defineProps({
 });
 
 onMounted(() => {
-	const saved  = localStorage.getItem('chatMessages');
-
+	const saved  = localStorage.getItem(`chatMessages_${props.category}`);
 	if (saved) dialog.value = JSON.parse(saved);
 });
 
 watch(dialog, (newValue) => {
-	localStorage.setItem('chatMessages', JSON.stringify(newValue));
+	localStorage.setItem(`chatMessages_${props.category}`, JSON.stringify(newValue));
 }, { deep: true });
 
 async function send() {
