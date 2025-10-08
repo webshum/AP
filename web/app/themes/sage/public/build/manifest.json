@@ -1,0 +1,24 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-BqrDAOEV.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-D9115iuI.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/images/home-bg.jpg": {
+    "file": "assets/home-bg-BLojIxuO.jpg",
+    "src": "resources/images/home-bg.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DjW_-1qE.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-Du5P23tR.css"
+    ]
+  }
+}
