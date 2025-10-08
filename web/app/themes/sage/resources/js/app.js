@@ -6,6 +6,7 @@ import.meta.glob([
   '../fonts/**',
 ]);
 
+
 window.onload = () => {
     if (document.querySelector('.categories-horizontal')) headerSticky();
     if (document.querySelector('.hexagon-categories')) anchor();
