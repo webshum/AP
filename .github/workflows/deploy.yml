@@ -41,8 +41,14 @@ jobs:
                   username: "${{ secrets.PROD_USERNAME }}"
                   password: "${{ secrets.PROD_PASSWORD }}"
                   script: |
-                      cd /alumwork.de/httpdocs
+                      cd /home/di569345/architecture-of-technology.com/www/
+                      git fetch origin
+                      git reset --hard origin/main
+                      git clean -fd
                       git pull origin main --force
+                      composer install
+                      /home/di569345/architecture-of-technology.com/www/web/app/themes/sage
+                      composer install
 
             - name: Send Telegram message
               if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
