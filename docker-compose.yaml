@@ -19,7 +19,7 @@ services:
     container_name: app_nginx
     image: nginx:stable-alpine
     ports: 
-      - 8300:80
+      - 8200:80
     volumes:
       - ./:/var/www
       - ./docker/nginx/conf.d:/etc/nginx/conf.d

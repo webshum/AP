@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BEmK1jLX.css",
+    "file": "assets/app-CMzJwi6c.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -13,12 +13,12 @@
     "src": "resources/images/home-bg.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-DnQ9_oaD.js",
+    "file": "assets/app-Ah_0AVi0.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-Du5P23tR.css"
+      "assets/app-ae2lkj4s.css"
     ]
   }
 }

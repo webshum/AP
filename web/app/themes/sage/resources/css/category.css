@@ -18,9 +18,15 @@
     border-radius: 30px;
     padding: 30px;
     border: 1px solid rgba(255,255,255,.5);
-    background-color: rgba(9, 19, 92, 0.5);
-    backdrop-filter: blur(1px);
-    background-image: radial-gradient(circle at 30% 140%, rgba(217, 126, 75, .3), transparent 37%), radial-gradient(circle at 50% 310%, #0400ff26, #a2a68700 78%), linear-gradient(transparent, #0d0a195e), radial-gradient(circle at 50% -30%, #a85c5c33, #67454500), radial-gradient(90% 10% at 50% 0, #a85c5c0d, #67454500 90%);
+    background: radial-gradient(
+        circle at 50% 100%, 
+        #3b5f7f 0%,
+        #1b324a 50%,
+        #0b1723 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
     & + .post-category {margin-top: 30px;}
 
@@ -52,9 +58,9 @@
             line-height: 1.2;
 
             a {
-                color: #fea603;
+                color: #0279d3;
                 transition: all 0.3s ease;
-                &:hover {color: red;}
+                &:hover {color: #ff354c;}
             }
         }
 
@@ -65,7 +71,7 @@
         .read-more {
             display: inline-block;
             line-height: 0;
-            color: #ef251d;
+            color: #0279d3;
 
             svg {
                 width: 30px;
@@ -73,7 +79,7 @@
                 transition: all 0.3s ease;
             }
 
-            &:hover {color: red;}
+            &:hover {color: #ff354c;}
         }
 
         &:last-child {
@@ -143,7 +149,7 @@
     max-height: 120px;
 
     &.is-sticky {
-        background-color: rgba(9, 19, 92, 0.5);
+        background-color: rgba(9, 66, 92, 0.5);
         backdrop-filter: blur(5px);
         a span {display: none;}
     }
