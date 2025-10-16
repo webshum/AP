@@ -1,6 +1,5 @@
 .home {
 	.main {
-		position: relative;
 		min-height: calc(100vh - 239px);
 		display: flex;
 		align-items: center;
@@ -14,11 +13,15 @@
 			height: 100%;
 		}
 
-		#ai {width: 100%;}
-
 		@media (max-width: 767px) {
 			min-height: calc(100vh - 245px);
 		}
+	}
+
+	#ai {width: 100%;}
+	.ai-assistant {
+		position: static;
+        z-index: inherit;
 	}
 
 	.categories {

@@ -11,6 +11,10 @@
     <ai-assistant :category="'{{ $category }}'"></ai-assistant>
 </div>
 
+<div class="popup-overlay"></div>
+
+<x-circle-parts/>
+
 <footer class="footer">
     <div class="center">
         <address class="address">

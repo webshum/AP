@@ -11,8 +11,6 @@
 
   <body @php(body_class())>
     @php(wp_body_open())
-
-    <x-circle-parts/>
     
     <div id="app">
       @include('sections.header')

@@ -2,7 +2,6 @@
 	padding: 20px 0;
 	text-align: center;
 	position: relative;
-	z-index: 5;
 
 	.ic-hexagon {
 		zoom: 0.6;
@@ -64,6 +63,7 @@
 
 	@media (max-width: 767px) {
 		margin-top: -6px;
+		zoom: 0.8;
 	}
 }
 
@@ -116,4 +116,8 @@
 	}
 }
 .menu-opened .nav-primary {transform: translateX(0);}
+.menu-opened .popup-overlay {
+	display: block;
+	animation: opacity 0.5s linear forwards;
+} 
 .logged-in .nav-primary {top: 32px;}

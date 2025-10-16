@@ -67,7 +67,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 20px;
+		margin-bottom: 50px;
 
 		& > div {
 			display: flex;
@@ -123,7 +123,7 @@
 	.agent-lightning .avatar {color: var(--lightning);}
 
 	.dialog {
-		padding: 30px 0 50px 0;
+		padding: 0 0 30px 0;
 		position: relative;
 		max-height: calc(100vh - 250px);
 		overflow-y: auto;
@@ -140,7 +140,6 @@
 	}
 
 	.answer {
-		margin-bottom: 25px;
 		text-align: left;
 		justify-content: start;
 
@@ -164,6 +163,7 @@
 	.question {
 		text-align: right;
 		justify-content: end;
+		margin-bottom: 40px;
 	}
 
 	.message {
@@ -173,6 +173,7 @@
 		font-size: 14px;
 		font-weight: 300;
 		line-height: 1.6;
+		position: relative;
 
 		.read-more {
 			display: inline-flex;
@@ -295,6 +296,11 @@
 		gap: 0 10px;
 		position: relative;
 
+		&.disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
 		input {
 			border-radius: 40px;
 			min-height: 50px;
@@ -328,6 +334,7 @@
     right: 0;
     bottom: 0;
     max-width: 800px;
+	width: 100%;
     padding: 0;
     border: none;
     background: none;

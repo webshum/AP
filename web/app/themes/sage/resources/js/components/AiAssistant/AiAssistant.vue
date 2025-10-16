@@ -6,13 +6,17 @@ import SendIcon from '../../../images/ic-send.svg';
 
 import { ref, nextTick, watch, onMounted } from 'vue';
 import Dialog from './Dialog.vue'; 
+import { getLang } from '../../helpers.js';
 
 const dialog = ref([]);
 const prompt = ref('');
 const preloader = ref(false);
 const dialogRef = ref(null);
 const showDialog = ref(false);
+const isDisabled = ref(false);
 const url = import.meta.env.VITE_API_URL;
+const STORAGE_KEY = 'ai_dialog_history';
+const STORAGE_TTL = 1000 * 60 * 60 * 24; 
 
 const props = defineProps({
 	category: {
@@ -29,10 +33,35 @@ const props = defineProps({
 	}
 });
 
+onMounted(() => {
+	const savedData = localStorage.getItem(STORAGE_KEY);
+
+	if (savedData) {
+		const parsed = JSON.parse(savedData);
+		const isExpired = Date.now() - parsed.timestamp > STORAGE_TTL;
+
+		if (!isExpired && Array.isArray(parsed.dialog)) {
+			dialog.value = parsed.dialog;
+		} else {
+			localStorage.removeItem(STORAGE_KEY);
+		}
+	}
+});
+
+watch(dialog, (newDialog) => {
+	const dataToSave = {
+		dialog: newDialog,
+		timestamp: Date.now(),
+	};
+
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+}, { deep: true });
+
 async function send() {
 	if (!prompt.value) return;
 
 	preloader.value = true;
+	isDisabled.value = true;
 
 	try {
 		const endpoint = `${url}/chat`;
@@ -42,17 +71,18 @@ async function send() {
 			content: prompt.value,
 		});
 
-		prompt.value = '';
 		scrollBottom();
 
 		const res = await fetch(endpoint, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({ 
+				userMessage: prompt.value,
 				message: dialog.value,
 				category: props.category,
+				lang: getLang()
 			}),
-		})
+		});
 
 		if (res.ok) {
 			const data = await res.json();
@@ -63,21 +93,28 @@ async function send() {
 		console.error(e);
 	} finally {
 		preloader.value = false;
+		isDisabled.value = false;
 		prompt.value = '';
 	}
 }
 
 if (props.design == 'page') {
 	watch(showDialog, async (newShowDialog, oldShowDialog) => {
-		if (newShowDialog) {
+		if (newShowDialog && !localStorage.getItem(STORAGE_KEY)) {
 			preloader.value = true;
+			isDisabled.value = true;
 
-			const res = await fetch(`${url}/welcome`, {'method': 'POST'});
+			const res = await fetch(`${url}/welcome`, {
+				method: 'POST',
+				headers: {"Content-Type": "application/json"},
+				body: JSON.stringify({lang: getLang()})
+			});
 
 			if (res.ok) {
 				const data = await res.json();
 				dialog.value = data;
 				preloader.value = false;
+				isDisabled.value = false;
 			}
 		}
 	});
@@ -118,7 +155,10 @@ async function scrollBottom() {
 			<Dialog :dialog="dialog"/>
 		</div>
 		
-		<div class="ask">
+		<div 
+			class="ask"
+			:class="{disabled: isDisabled}"
+		>
 			<PreloaderIcon class="preloader" v-if="preloader" />
 
 			<input v-model="prompt" class="text-input" type="text" placeholder="Zadaj pytanie...">

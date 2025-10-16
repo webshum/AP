@@ -10,7 +10,7 @@ import LightningIcon from '../../../images/ic-lightning.svg';
 
 import { ref } from 'vue';
 import SaveAnswer from './SaveAnswer.vue';
-import { marked } from 'marked'
+import { marked } from 'marked';
 
 const expandedMessages = ref({});
 const messageRefs = ref({});
@@ -47,10 +47,21 @@ const checkHeight = (el, index) => {
 		needsReadMore.value[index] = el.scrollHeight > 190;
 	}
 }
+
+function getUserMessage(index) {
+	let currentUser = null;
+
+	for (let i = 0; i <= index; i++) {
+		if (props.dialog[i].role === 'user') {
+			currentUser = props.dialog[i];
+		}
+	}
+	return currentUser;
+}
 </script>
 
 <template>
-	<article v-for="(message, index) in dialog" :key="index">
+	<article v-for="(message, index) in dialog" :key="index" :class="message.role">
 		<!-- Assistant -->
 		<div 
 			:class="`agent-${message.name} answer`" 
@@ -63,6 +74,7 @@ const checkHeight = (el, index) => {
 					:class="`ic-${message.name} size-6`"
 				/>
 			</div>
+
 			<div class="message">
 				<div
 					:ref="(el) => checkHeight(el, index)"
@@ -80,6 +92,11 @@ const checkHeight = (el, index) => {
 				>
 					{{ expandedMessages[index] ? 'Read Less' : 'Read More' }}
 				</div>
+
+				<SaveAnswer 
+					:dialog="dialog[index]" 
+					:userMessage="getUserMessage(index)"
+				/>
 			</div>
 		</div>
 

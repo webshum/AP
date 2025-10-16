@@ -17,6 +17,8 @@ window.onload = () => {
 
         document.body.classList.toggle('menu-opened');
     }
+
+    document.querySelector('.popup-overlay').onclick = e => document.body.classList.remove('menu-opened');
 }
 
 function headerSticky() {
