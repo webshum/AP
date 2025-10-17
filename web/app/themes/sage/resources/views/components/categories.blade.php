@@ -4,7 +4,24 @@ $current_category = null;
 if (!empty(get_queried_object()->term_id)) {
     $current_category = get_queried_object();
 } else {
-    $current_category = get_category(get_the_category()[0]->parent);
+    $categories = get_the_category();
+    
+    if (!empty($categories)) {
+        if (count($categories) > 1) {
+            foreach ($categories as $cat) {
+                if ($cat->parent > 0) {
+                    $current_category = get_category($cat->parent);
+                    break;
+                }
+            }
+
+            if (!$current_category) {
+                $current_category = get_category($categories[0]->parent);
+            }
+        } else {
+            $current_category = get_category($categories[0]->parent);
+        }
+    }
 }
 
 $categories = get_categories([
@@ -15,7 +32,7 @@ $categories = get_categories([
 if (!empty($categories)) {
     $ids = array_column($categories, 'term_id');
     $activeIndex = array_search($current_category->term_id ?? null, $ids);
-
+    
     if ($activeIndex !== false) {
         $middleIndex = floor(count($categories) / 2);
 
@@ -33,9 +50,12 @@ if (!empty($categories)) {
         @foreach ($categories as $category)
             @php
                 $image = get_field('image', "term_{$category->term_id}");
-                $is_active = ($current_category->term_id && $current_category->term_id == $category->term_id);
+                $is_active = false;
+                if (!empty($current_category)) {
+                    $is_active = ($current_category->term_id && $current_category->term_id == $category->term_id);
+                }
             @endphp
-            
+
             <li class="{{ $is_active ? 'active' : '' }}">
                 <a href="{{ get_category_link($category) }}">
                     @if($image)

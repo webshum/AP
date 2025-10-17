@@ -136,6 +136,31 @@
     }
 }
 
+.category-fotowoltaika .post-category {
+    article h2 a,
+    article .read-more {color: #ff354c;}
+}
+
+.category-projektowanie .post-category {
+    article h2 a,
+    article .read-more {color: #ff354c;}
+}
+
+.category-ogrzewanie .post-category {
+    article h2 a,
+    article .read-more {color: #ff9900;}
+}
+
+.category-automatyzacja .post-category {
+    article h2 a,
+    article .read-more {color: #ff354c;}
+}
+
+.category-elektryka .post-category {
+    article h2 a,
+    article .read-more {color: #ff354c;}
+}
+
 .categories-horizontal {
     display: flex;
     align-items: center;

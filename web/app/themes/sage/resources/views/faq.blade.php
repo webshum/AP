@@ -1,5 +1,5 @@
 {{-- 
-	Template Name: Faq
+	Template Name: Page Faq
 --}}
 @php
 	$faq = new WP_Query([

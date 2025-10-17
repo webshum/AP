@@ -27,7 +27,6 @@ function headerSticky() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
-
                 sticky.classList.add('is-sticky');
             } else {
                 sticky.classList.remove('is-sticky');

@@ -22,6 +22,174 @@ body {
     background-size: cover;
 }
 
+.category-wentylacja {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#68a2d9 0%, 
+		#355573 50%, 
+		#0b1723 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#68a2d9 0%, 
+			#355573 50%, 
+			#0b1723 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-wod-kanal {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#0eb4ea 0%, 
+		#095d78 50%, 
+		#0b1723 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#0eb4ea 0%, 
+			#095d78 50%, 
+			#0b1723 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-fotowoltaika {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#325f1e 0%, 
+		#123b00 50%, 
+		#0a2001 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#325f1e 0%, 
+			#123b00 50%, 
+			#0a2001 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-projektowanie {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#b476e8 0%, 
+		#6c3f92 50%, 
+		#371f4a 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#b476e8 0%, 
+			#6c3f92 50%, 
+			#371f4a 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-ogrzewanie {
+	background: radial-gradient(
+        circle at 50% 0%, 
+        #de482b 0%, 
+        #9f2007 50%, 
+        #480e03 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#de482b 0%, 
+			#9f2007 50%, 
+			#480e03 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-automatyzacja {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#b07400 0%, 
+		#734c00 50%, 
+		#4e3400 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#b07400 0%, 
+			#734c00 50%, 
+			#4e3400 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+.category-elektryka {
+	background: radial-gradient(
+		circle at 50% 0%, 
+		#f4db33 0%, 
+		#7e7014 50%, 
+		#2c2707 100%
+	);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+	.h-entry, .post-category {
+		background: radial-gradient(
+			circle at 50% 100%, 
+			#a79622 0%, 
+			#7e7014 50%, 
+			#2c2707 100%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
 #app {
 	min-height: 100vh;
 	display: flex;

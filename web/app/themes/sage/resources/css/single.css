@@ -39,22 +39,13 @@
         color: #908f8f;
     }
 
-    .e-content {
+    .h-entry {
         overflow: hidden;
         padding: 30px;
         border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, .2);
-        background: radial-gradient(
-            circle at 50% 100%, 
-            #3b5f7f 0%,
-            #1b324a 50%,
-            #0b1723 100%
-        );
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
         font-weight: 300;
         color: #fff;
+        border: 1px solid rgba(255,255,255,.1);
 
         img {border-radius: 15px;}
         .aligncenter {margin: 0 auto;}
