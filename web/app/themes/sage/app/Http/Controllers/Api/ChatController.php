@@ -119,6 +119,22 @@ class ChatController {
 		 	$response = $response->json()['choices'][0]['message']['content'] ?? '';
 		}
 
+		// if return censorship
+		if (trim($response) === 'censorship') {
+		 	$messages[] = [
+		 		'role' => 'system',
+		 		'content' => config("settings.censorship.{$lang}") . " " . config("settings.ask.{$lang}")
+		 	];
+
+		 	$response = Http::withToken($this->api_key)
+		 		->post("{$this->url}/chat/completions", [
+		 			'model' => 'gpt-4o-mini',
+		 			'messages' => $messages,
+		 		]);
+
+		 	$response = $response->json()['choices'][0]['message']['content'] ?? '';
+		}
+
 		$messages[] = [
 			'role' => 'assistant',
 			'name' => 'architect',

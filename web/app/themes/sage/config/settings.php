@@ -34,4 +34,8 @@ return [
                     If the text is in Polish or Latin script — return 'pl'.  
                     Return only 'uk' or 'pl'.  
                     Text: ",
+	'censorship' => [
+		'uk' => "Додай попередження, якщо у вашому запиті є нецензурна лексика або ви ввели контактні дані.",
+		'pl' => "Dodaj ostrzeżenie, jeśli w twoim zapytaniu znajdują się wulgaryzmy lub wprowadziłeś dane kontaktowe."
+	]
 ];

@@ -9,7 +9,7 @@ import.meta.glob([
 window.addEventListener('load', () => {
     if (document.getElementById('main-preloader')) {
         const preloader = document.getElementById('main-preloader');
-        setTimeout(() => preloader.remove(), 1000);
+        setTimeout(() => preloader.remove(), 2000);
     }
 
     if (document.querySelector('.categories-horizontal')) headerSticky();
