@@ -35,7 +35,7 @@ return [
                     Return only 'uk' or 'pl'.  
                     Text: ",
 	'censorship' => [
-		'uk' => "Додай попередження, якщо у вашому запиті є нецензурна лексика або ви ввели контактні дані.",
-		'pl' => "Dodaj ostrzeżenie, jeśli w twoim zapytaniu znajdują się wulgaryzmy lub wprowadziłeś dane kontaktowe."
+		'uk' => "Додай попередження українською, якщо у вашому запиті є нецензурна лексика або ви ввели контактні дані.",
+		'pl' => "Dodaj ostrzeżenie po polsku, jeśli w twoim zapytaniu znajdują się wulgaryzmy lub wprowadziłeś dane kontaktowe."
 	]
 ];
