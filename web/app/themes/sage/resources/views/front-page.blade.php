@@ -10,4 +10,6 @@
 		<ai-assistant :design="'frontend'"></ai-assistant>
 	</div>
 </div>
+
+<x-preloader/>
 @endsection

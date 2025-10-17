@@ -190,6 +190,23 @@ body {
 	}
 }
 
+#main-preloader {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,.5);
+	z-index: 99999;
+	color: #808cff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		width: 80px;
+		height: 80px;
+		animation: spin 3s linear infinite;
+	}
+}
+
 #app {
 	min-height: 100vh;
 	display: flex;

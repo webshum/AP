@@ -6,7 +6,12 @@ import.meta.glob([
   '../fonts/**',
 ]);
 
-window.onload = () => {
+window.addEventListener('load', () => {
+    if (document.getElementById('main-preloader')) {
+        const preloader = document.getElementById('main-preloader');
+        setTimeout(() => preloader.remove(), 1000);
+    }
+
     if (document.querySelector('.categories-horizontal')) headerSticky();
     if (document.querySelector('.hexagon-categories')) anchor();
     if (document.querySelector('.faq-accordeon')) accordion_toggle();
@@ -19,7 +24,7 @@ window.onload = () => {
     }
 
     document.querySelector('.popup-overlay').onclick = e => document.body.classList.remove('menu-opened');
-}
+});
 
 function headerSticky() {
     const sticky = document.querySelector('.categories-horizontal');
