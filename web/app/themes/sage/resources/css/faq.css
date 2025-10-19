@@ -16,6 +16,10 @@
         background-attachment: fixed;
         background-size: cover;
         & + .item-accordeon {margin-top: 30px;}
+
+		@media (max-width: 768px) {
+			border-radius: 15px;
+		}
     }
 
     .btn-accordeon {
@@ -26,17 +30,28 @@
         font-weight: bold;
         text-transform: uppercase;
         cursor: pointer;
+		gap: 0 10px;
+
+		@media (max-width: 768px) {
+			padding: 15px;
+			font-size: 14px;
+		}
     }
 
     .content-accordeon {
         .inner {
             padding: 0 30px 30px 30px;
             font-weight: 300;
+
+			@media (max-width: 768px) {
+				padding: 0 15px 15px 15px;
+			}
         }
     }
 
     .ic-plus {
         width: 18px;
+		min-width: 18px;
         height: 18px;
         position: relative;
 
