@@ -17,16 +17,8 @@
 .post-category {
     border-radius: 30px;
     padding: 30px;
-    border: 1px solid rgba(255,255,255,.5);
-    background: radial-gradient(
-        circle at 50% 100%, 
-        #3b5f7f 0%,
-        #1b324a 50%,
-        #0b1723 100%
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(5px);
 
     & + .post-category {margin-top: 30px;}
 
@@ -59,7 +51,7 @@
             line-height: 1.2;
 
             a {
-                color: #0279d3;
+                color: #369eed;
                 transition: all 0.3s ease;
                 &:hover {color: #ff354c;}
             }
@@ -72,7 +64,7 @@
         .read-more {
             display: inline-block;
             line-height: 0;
-            color: #0279d3;
+            color: #369eed;
 
             svg {
                 width: 30px;
@@ -90,22 +82,20 @@
         }
     }
 
-    &:nth-child(1)  { border-color: rgba(255, 53, 76, 0.5); }   
-    &:nth-child(2)  { border-color: rgba(255, 153, 0, 0.5); }   
-    &:nth-child(3)  { border-color: rgba(255, 238, 0, 0.5); }   
-    &:nth-child(4)  { border-color: rgba(40, 159, 12, 0.5); }   
-    &:nth-child(5)  { border-color: rgba(0, 141, 240, 0.5); }   
-    &:nth-child(6)  { border-color: rgba(0, 99, 238, 0.5); }    
-    &:nth-child(7)  { border-color: rgba(130, 115, 233, 0.5); } 
-
-    &:nth-child(8)  { border-color: rgba(255, 53, 76, 0.5); }  
-    &:nth-child(9)  { border-color: rgba(255, 153, 0, 0.5); }  
-    &:nth-child(10) { border-color: rgba(255, 238, 0, 0.5); }  
-    &:nth-child(11) { border-color: rgba(40, 159, 12, 0.5); }  
-    &:nth-child(12) { border-color: rgba(0, 141, 240, 0.5); }  
-    &:nth-child(13) { border-color: rgba(0, 99, 238, 0.5); }   
-    &:nth-child(14) { border-color: rgba(130, 115, 233, 0.5); }
-
+    &:nth-child(1) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}   
+    &:nth-child(2) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}   
+    &:nth-child(3) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}   
+    &:nth-child(4) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}   
+    &:nth-child(5) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}   
+    &:nth-child(6) {box-shadow: 0 -2px 10px rgba(0, 99, 238, 0.5);}    
+    &:nth-child(7) {box-shadow: 0 -2px 10px rgba(130, 115, 233, 0.5);} 
+    &:nth-child(8) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}  
+    &:nth-child(9) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}  
+    &:nth-child(10) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}  
+    &:nth-child(11) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}  
+    &:nth-child(12) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}  
+    &:nth-child(13) {box-shadow: 0 -2px 10px rgba(0, 99, 238), 0.5;}   
+    &:nth-child(14) {box-shadow: 0 -2px 10px rgba(130, 115, 233), 0.5;}
 
     @media (max-width: 991px) {
         border-radius: 20px;
@@ -136,29 +126,34 @@
     }
 }
 
+.category-wentylacja .post-category {
+    article h2 a,
+    article .read-more {color: #6caeed;}
+}
+
 .category-fotowoltaika .post-category {
     article h2 a,
-    article .read-more {color: #ff354c;}
+    article .read-more {color: #01d225;}
 }
 
 .category-projektowanie .post-category {
     article h2 a,
-    article .read-more {color: #ff354c;}
+    article .read-more {color: #b700ff;}
 }
 
 .category-ogrzewanie .post-category {
     article h2 a,
-    article .read-more {color: #ff9900;}
+    article .read-more {color: #ff4c00;}
 }
 
 .category-automatyzacja .post-category {
     article h2 a,
-    article .read-more {color: #ff354c;}
+    article .read-more {color: #ffb300;}
 }
 
 .category-elektryka .post-category {
     article h2 a,
-    article .read-more {color: #3b340a;}
+    article .read-more {color: #ffdb00;}
 }
 
 .categories-horizontal {

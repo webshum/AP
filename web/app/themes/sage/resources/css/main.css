@@ -14,8 +14,8 @@ body {
     background: radial-gradient(
         circle at 50% 0%,
         #3b5f7f 0%,
-        #1b324a 50%,
-        #0b1723 100% 
+        #142436 50%,
+        #000 100% 
     );
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -26,168 +26,84 @@ body {
 	background: radial-gradient(
 		circle at 50% 0%, 
 		#68a2d9 0%, 
-		#355573 50%, 
-		#0b1723 100%
+		#2e4a65 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#68a2d9 0%, 
-			#355573 50%, 
-			#0b1723 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-wod-kanal {
 	background: radial-gradient(
 		circle at 50% 0%, 
 		#0eb4ea 0%, 
-		#095d78 50%, 
-		#0b1723 100%
+		#08485c 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#0eb4ea 0%, 
-			#095d78 50%, 
-			#0b1723 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-fotowoltaika {
 	background: radial-gradient(
 		circle at 50% 0%, 
-		#325f1e 0%, 
-		#123b00 50%, 
-		#0a2001 100%
+		#529f31 0%, 
+		#204012 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#325f1e 0%, 
-			#123b00 50%, 
-			#0a2001 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-projektowanie {
 	background: radial-gradient(
 		circle at 50% 0%, 
 		#b476e8 0%, 
-		#6c3f92 50%, 
-		#371f4a 100%
+		#402557 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#b476e8 0%, 
-			#6c3f92 50%, 
-			#371f4a 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-ogrzewanie {
 	background: radial-gradient(
         circle at 50% 0%, 
-        #de482b 0%, 
-        #9f2007 50%, 
-        #480e03 100%
+        #cc5421 0%, 
+        #51210c 50%, 
+        #000 100%
     );
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#de482b 0%, 
-			#9f2007 50%, 
-			#480e03 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-automatyzacja {
 	background: radial-gradient(
 		circle at 50% 0%, 
-		#b07400 0%, 
-		#734c00 50%, 
-		#4e3400 100%
+		#d28b0c 0%, 
+		#5b3d07 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#b07400 0%, 
-			#734c00 50%, 
-			#4e3400 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 .category-elektryka {
 	background: radial-gradient(
 		circle at 50% 0%, 
-		#f4db33 0%, 
-		#7e7014 50%, 
-		#2c2707 100%
+		#c29426 0%, 
+		#513d0e 50%, 
+		#000 100%
 	);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-	.h-entry, .post-category {
-		background: radial-gradient(
-			circle at 50% 100%, 
-			#a79622 0%, 
-			#7e7014 50%, 
-			#2c2707 100%
-		);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
 }
 
 #main-preloader {
