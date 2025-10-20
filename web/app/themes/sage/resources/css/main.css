@@ -11,99 +11,74 @@ body {
   	font-size: 16px;
 	line-height: 1.5;
 
-    background: radial-gradient(
-        circle at 50% 0%,
-        #3b5f7f 0%,
-        #142436 50%,
-        #000 100% 
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+	background: radial-gradient(
+		circle at 50% -25%,
+		#8697a5 0%,
+		#000 50%
+	) fixed center / cover;
 }
 
 .category-wentylacja {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#68a2d9 0%, 
-		#2e4a65 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#004b91,
+		#031e3a,
+		#000
+	) fixed center / cover;
 }
 
 .category-wod-kanal {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#0eb4ea 0%, 
-		#08485c 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#3b5f7f,
+		#152537,
+		#000
+	) fixed center / cover;
 }
 
 .category-fotowoltaika {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#529f31 0%, 
-		#204012 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#1e4d0a,
+		#14280b,
+		#000
+	) fixed center / cover;
 }
 
 .category-projektowanie {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#b476e8 0%, 
-		#402557 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#4f305a,
+		#221123,
+		#000
+	) fixed center / cover;
 }
 
 .category-ogrzewanie {
 	background: radial-gradient(
-        circle at 50% 0%, 
-        #cc5421 0%, 
-        #51210c 50%, 
-        #000 100%
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#781717,
+		#3d0b0b,
+		#000
+	) fixed center / cover;
 }
 
 .category-automatyzacja {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#d28b0c 0%, 
-		#5b3d07 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#ab7503,
+		#211701,
+		#000
+	) fixed center / cover;
 }
 
 .category-elektryka {
 	background: radial-gradient(
-		circle at 50% 0%, 
-		#c29426 0%, 
-		#513d0e 50%, 
-		#000 100%
-	);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+		circle at 50% 0%,
+		#976a00,
+		#2d260d,
+		#000
+	) fixed center / cover;
 }
 
 #main-preloader {

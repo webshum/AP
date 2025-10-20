@@ -1,11 +1,17 @@
 {
   "editor.deps.json": {
-    "file": "assets/editor.deps-BqrDAOEV.json",
+    "file": "assets/editor.deps-DxpY22xl.json",
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D6J5h3vG.css",
+    "file": "assets/app-DkmQqSw5.css",
     "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-l0sNRNKZ.js",
+    "name": "editor",
+    "src": "resources/css/editor.css",
     "isEntry": true
   },
   "resources/images/home-bg.jpg": {
@@ -13,12 +19,18 @@
     "src": "resources/images/home-bg.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-Cjz1zolr.js",
+    "file": "assets/app-C-rCBKqv.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
       "assets/app-ae2lkj4s.css"
     ]
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-CfU4GbSP.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
   }
 }

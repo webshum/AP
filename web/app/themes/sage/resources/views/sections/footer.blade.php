@@ -1,7 +1,8 @@
 <x-popup/>
 <x-ai/>
-<x-circle-parts/>
 <x-icons/>
+
+<div class="particle-wrap"></div>
 
 <footer class="footer">
     <div class="center">
