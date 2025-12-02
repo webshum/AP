@@ -18,69 +18,6 @@ body {
 	) fixed center / cover;
 }
 
-.category-wentylacja {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#004b91,
-		#031e3a,
-		#000
-	) fixed center / cover;
-}
-
-.category-wod-kanal {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#3b5f7f,
-		#152537,
-		#000
-	) fixed center / cover;
-}
-
-.category-fotowoltaika {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#1e4d0a,
-		#14280b,
-		#000
-	) fixed center / cover;
-}
-
-.category-projektowanie {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#4f305a,
-		#221123,
-		#000
-	) fixed center / cover;
-}
-
-.category-ogrzewanie {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#781717,
-		#3d0b0b,
-		#000
-	) fixed center / cover;
-}
-
-.category-automatyzacja {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#ab7503,
-		#211701,
-		#000
-	) fixed center / cover;
-}
-
-.category-elektryka {
-	background: radial-gradient(
-		circle at 50% 0%,
-		#976a00,
-		#2d260d,
-		#000
-	) fixed center / cover;
-}
-
 #main-preloader {
 	position: fixed;
 	inset: 0;

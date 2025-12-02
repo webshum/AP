@@ -170,3 +170,19 @@ add_filter('body_class', function ($classes) {
 
     return $classes;
 });
+
+/*
+|--------------------------------------------------------------------------
+| Get background categorie
+|--------------------------------------------------------------------------
+*/
+function get_background_category() {
+    $term = get_queried_object();
+    $background = null;
+
+    if ($term && isset($term->term_id)) {
+        $background = get_field('background', 'term_' . $term->term_id);
+    }
+    
+    echo $background ? "style='{$background}'" : '';
+}
