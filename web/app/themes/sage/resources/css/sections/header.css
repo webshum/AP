@@ -5,10 +5,13 @@
 
 	.ic-hexagon {
 		zoom: 0.6;
-		background-color: #007edb;
+		background-color: #000;
 		&:hover {transform: scale(1.2);}
 	}
-	.account-installator .ic-hexagon {background-color: #f22820;}
+	.account-installator .ic-hexagon {
+		background-color: #fff;
+		&:before {background: #fff;}
+	}
 
 	.center {
 		display: flex;
