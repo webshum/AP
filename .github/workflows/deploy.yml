@@ -55,4 +55,4 @@ jobs:
                   to: "${{ secrets.TELEGRAM_ID }}"
                   token: "${{ secrets.TELEGRAM_TOKEN }}"
                   message: |
-                      Deployment successful http://ap.webshum.com.ua/ on branch ${{ github.ref }}
+                      Deployment successful https://apfront.webshum.com.ua/ on branch ${{ github.ref }}
