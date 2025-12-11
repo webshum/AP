@@ -9,9 +9,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
 
-  <body @php(body_class())>
+  <body @php(body_class()) @php(get_background_category())>
     @php(wp_body_open())
-
+    
     <div id="app">
       @include('sections.header')
 

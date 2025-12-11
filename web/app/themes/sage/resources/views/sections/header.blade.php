@@ -1,6 +1,6 @@
 <header class="header">
     <div class="center">
-        <a href="/" class="account-user">
+        <a href="{{ env('APP_URL_BACKEND') }}" class="account-user">
             <div class="ic-hexagon"></div>
         </a>
         
@@ -14,7 +14,7 @@
           </nav>
         @endif
 
-        <a href="#" class="account-installator">
+        <a href="{{ env('APP_URL_BACKEND') }}" class="account-installator">
             <div class="ic-hexagon"></div>
         </a>
 

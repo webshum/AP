@@ -2,14 +2,16 @@
 	padding: 20px 0;
 	text-align: center;
 	position: relative;
-	z-index: 5;
 
 	.ic-hexagon {
 		zoom: 0.6;
-		background-color: #007edb;
+		background-color: #000;
 		&:hover {transform: scale(1.2);}
 	}
-	.account-installator .ic-hexagon {background-color: #f22820;}
+	.account-installator .ic-hexagon {
+		background-color: #fff;
+		&:before {background: #fff;}
+	}
 
 	.center {
 		display: flex;
@@ -64,6 +66,7 @@
 
 	@media (max-width: 767px) {
 		margin-top: -6px;
+		zoom: 0.8;
 	}
 }
 
@@ -85,13 +88,21 @@
 	left: 0;
 	bottom: 0;
 	z-index: 999;
-	background-color: #000;
 	min-width: 250px;
 	display: flex;
     align-items: center;
     padding: 20px;
 	transition: all 0.3s ease;
 	transform: translateX(-250px);
+	background: radial-gradient(
+        circle at left center, 
+        #3b5f7f 0%,
+        #1b324a 50%,
+        #0b1723 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
 	.menu-menu-container {
 		width: 100%;
@@ -104,8 +115,12 @@
 		padding: 5px 0;
 		display: block;
 		transition: all 0.3s ease;
-		&:hover {color: red;}
+		&:hover {color: #ff354c;}
 	}
 }
 .menu-opened .nav-primary {transform: translateX(0);}
+.menu-opened .popup-overlay {
+	display: block;
+	animation: opacity 0.5s linear forwards;
+} 
 .logged-in .nav-primary {top: 32px;}

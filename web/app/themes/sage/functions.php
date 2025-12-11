@@ -144,3 +144,45 @@ add_action('init', function() {
 
     register_post_type('faq', $args);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Add current category for body
+|--------------------------------------------------------------------------
+*/
+add_filter('body_class', function ($classes) {
+    if (is_single()) {
+        $categories = get_the_category();
+
+        if (!empty($categories)) {
+            $cat = $categories[0];
+            $parent = $cat->parent ? get_category($cat->parent) : $cat;
+
+            $classes[] = 'category-' . sanitize_html_class($parent->slug);
+        }
+    }
+
+    if (is_category()) {
+        $current = get_queried_object();
+        $parent = $current->parent ? get_category($current->parent) : $current;
+        $classes[] = 'category-' . sanitize_html_class($parent->slug);
+    }
+
+    return $classes;
+});
+
+/*
+|--------------------------------------------------------------------------
+| Get background categorie
+|--------------------------------------------------------------------------
+*/
+function get_background_category() {
+    $term = get_queried_object();
+    $background = null;
+
+    if ($term && isset($term->term_id)) {
+        $background = get_field('background', 'term_' . $term->term_id);
+    }
+    
+    echo $background ? "style='{$background}'" : '';
+}

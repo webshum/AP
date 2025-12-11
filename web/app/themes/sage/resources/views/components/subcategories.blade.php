@@ -5,7 +5,24 @@
     if (!empty(get_queried_object()->term_id)) {
         $current_category = get_queried_object();
     } else {
-        $current_category = get_category(get_the_category()[0]->parent);
+        $categories = get_the_category();
+    
+        if (!empty($categories)) {
+            if (count($categories) > 1) {
+                foreach ($categories as $cat) {
+                    if ($cat->parent > 0) {
+                        $current_category = get_category($cat->parent);
+                        break;
+                    }
+                }
+
+                if (!$current_category) {
+                    $current_category = get_category($categories[0]->parent);
+                }
+            } else {
+                $current_category = get_category($categories[0]->parent);
+            }
+        }
     }
     
     if (!empty($current_category)) {

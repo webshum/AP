@@ -17,10 +17,8 @@
 .post-category {
     border-radius: 30px;
     padding: 30px;
-    border: 1px solid rgba(255,255,255,.5);
-    background-color: rgba(9, 19, 92, 0.5);
-    backdrop-filter: blur(1px);
-    background-image: radial-gradient(circle at 30% 140%, rgba(217, 126, 75, .3), transparent 37%), radial-gradient(circle at 50% 310%, #0400ff26, #a2a68700 78%), linear-gradient(transparent, #0d0a195e), radial-gradient(circle at 50% -30%, #a85c5c33, #67454500), radial-gradient(90% 10% at 50% 0, #a85c5c0d, #67454500 90%);
+    background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(5px);
 
     & + .post-category {margin-top: 30px;}
 
@@ -48,13 +46,14 @@
         }
 
         h2 {
+            
             font-size: 20px;
             line-height: 1.2;
 
             a {
-                color: #fea603;
+                color: #369eed;
                 transition: all 0.3s ease;
-                &:hover {color: red;}
+                &:hover {color: #ff354c;}
             }
         }
 
@@ -65,7 +64,7 @@
         .read-more {
             display: inline-block;
             line-height: 0;
-            color: #ef251d;
+            color: #369eed;
 
             svg {
                 width: 30px;
@@ -73,7 +72,7 @@
                 transition: all 0.3s ease;
             }
 
-            &:hover {color: red;}
+            &:hover {color: #ff354c;}
         }
 
         &:last-child {
@@ -83,22 +82,20 @@
         }
     }
 
-    &:nth-child(1)  { border-color: rgba(255, 53, 76, 0.5); }   
-    &:nth-child(2)  { border-color: rgba(255, 153, 0, 0.5); }   
-    &:nth-child(3)  { border-color: rgba(255, 238, 0, 0.5); }   
-    &:nth-child(4)  { border-color: rgba(40, 159, 12, 0.5); }   
-    &:nth-child(5)  { border-color: rgba(0, 141, 240, 0.5); }   
-    &:nth-child(6)  { border-color: rgba(0, 99, 238, 0.5); }    
-    &:nth-child(7)  { border-color: rgba(130, 115, 233, 0.5); } 
-
-    &:nth-child(8)  { border-color: rgba(255, 53, 76, 0.5); }  
-    &:nth-child(9)  { border-color: rgba(255, 153, 0, 0.5); }  
-    &:nth-child(10) { border-color: rgba(255, 238, 0, 0.5); }  
-    &:nth-child(11) { border-color: rgba(40, 159, 12, 0.5); }  
-    &:nth-child(12) { border-color: rgba(0, 141, 240, 0.5); }  
-    &:nth-child(13) { border-color: rgba(0, 99, 238, 0.5); }   
-    &:nth-child(14) { border-color: rgba(130, 115, 233, 0.5); }
-
+    &:nth-child(1) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}   
+    &:nth-child(2) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}   
+    &:nth-child(3) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}   
+    &:nth-child(4) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}   
+    &:nth-child(5) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}   
+    &:nth-child(6) {box-shadow: 0 -2px 10px rgba(0, 99, 238, 0.5);}    
+    &:nth-child(7) {box-shadow: 0 -2px 10px rgba(130, 115, 233, 0.5);} 
+    &:nth-child(8) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}  
+    &:nth-child(9) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}  
+    &:nth-child(10) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}  
+    &:nth-child(11) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}  
+    &:nth-child(12) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}  
+    &:nth-child(13) {box-shadow: 0 -2px 10px rgba(0, 99, 238), 0.5;}   
+    &:nth-child(14) {box-shadow: 0 -2px 10px rgba(130, 115, 233), 0.5;}
 
     @media (max-width: 991px) {
         border-radius: 20px;
@@ -129,6 +126,36 @@
     }
 }
 
+.category-wentylacja .post-category {
+    article h2 a,
+    article .read-more {color: #6caeed;}
+}
+
+.category-fotowoltaika .post-category {
+    article h2 a,
+    article .read-more {color: #01d225;}
+}
+
+.category-projektowanie .post-category {
+    article h2 a,
+    article .read-more {color: #b700ff;}
+}
+
+.category-ogrzewanie .post-category {
+    article h2 a,
+    article .read-more {color: #ff4c00;}
+}
+
+.category-automatyzacja .post-category {
+    article h2 a,
+    article .read-more {color: #ffb300;}
+}
+
+.category-elektryka .post-category {
+    article h2 a,
+    article .read-more {color: #ffdb00;}
+}
+
 .categories-horizontal {
     display: flex;
     align-items: center;
@@ -143,7 +170,7 @@
     max-height: 120px;
 
     &.is-sticky {
-        background-color: rgba(9, 19, 92, 0.5);
+        background-color: rgba(9, 66, 92, 0.5);
         backdrop-filter: blur(5px);
         a span {display: none;}
     }

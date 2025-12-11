@@ -16,12 +16,13 @@
 @extends('layouts.app')
 
 @section('content')
-@include('components.categories')
+
+<x-categories/>
 
 <div class="center">
     <div class="main-content">
         <aside>
-            @include('components.subcategories')
+            <x-subcategories/>
         </aside>
 
         <div class="content">

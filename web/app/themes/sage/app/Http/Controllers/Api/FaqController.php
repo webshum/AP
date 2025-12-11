@@ -10,8 +10,13 @@ class FaqController {
 	}
 
 	public function store(Request $request) {
-		$title = $request[0]['content'] ?? null;
-		$content = $request[1]['content'] ?? null;
+		$validated = $request->validate([
+			'title' => 'required|string',
+			'content' => 'nullable|string'
+		]);
+
+		$title = trim($validated['title']);
+		$content = $validated['content'] ?? '';
 
 		$existing_post = get_page_by_title($title, OBJECT, 'faq');
 
@@ -53,5 +58,29 @@ class FaqController {
 
 	public function destroy($id) {
 		return 'delete';
+	}
+
+	public function has(Request $request) {
+		$title = trim($request->input('title', ''));
+
+		if (empty($title)) {
+			return response()->json([
+				'status' => 'error',
+				'message' => 'Missing title parameter'
+			], 400);
+		}
+
+		$existing_post = get_page_by_title($title, OBJECT, 'faq');
+
+		if ($existing_post) {
+			return response()->json([
+				'status' => 'exists',
+				'id' => $existing_post->ID
+			], 200);
+		}
+
+		return response()->json([
+			'status' => 'not_found'
+		], 404);
 	}
 }

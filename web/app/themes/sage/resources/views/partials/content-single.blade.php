@@ -11,7 +11,7 @@
 
             <h1 class="p-name">{!! $title !!}</h1>
             
-            @include('partials.entry-meta')
+            {{-- @include('partials.entry-meta') --}}
 
             @php(the_content())
         </div>

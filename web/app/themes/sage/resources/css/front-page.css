@@ -1,40 +1,10 @@
 .home {
-	#app {
-		position: relative;
-		overflow: hidden;
-
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: -500px;
-			left: -500px;
-			width: 1500px;
-			height: 1500px;
-			z-index: 2;
-			border-radius: 50%;
-			background: radial-gradient(rgba(1, 21, 169, 0.5), transparent 70%);
-		}
-
-		&:after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-			z-index: -2;
-			background: rgba(0,0,0,.8);
-		}
-	}
-
 	.main {
-		position: relative;
 		min-height: calc(100vh - 239px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
 
 		.center {
 			display: flex;
@@ -46,6 +16,12 @@
 		@media (max-width: 767px) {
 			min-height: calc(100vh - 245px);
 		}
+	}
+
+	#ai {width: 100%;}
+	.ai-assistant {
+		position: static;
+        z-index: inherit;
 	}
 
 	.categories {
