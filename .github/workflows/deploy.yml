@@ -22,7 +22,7 @@ jobs:
                   password: "${{ secrets.DEV_PASSWORD }}"
                   port: "${{ secrets.DEV_PORT }}"
                   script: |
-                      cd /var/www/ap
+                      cd /var/www/AP/FrontEnd
                       git fetch origin
                       git reset --hard origin/develop
                       git clean -fd

@@ -1,6 +1,6 @@
 services:
   app: 
-    container_name: app_ap
+    container_name: appf_ap
     build: 
       context: .
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
     restart: always
 
   nginx:
-    container_name: app_nginx
+    container_name: appf_nginx
     image: nginx:stable-alpine
     ports: 
       - 8200:80
@@ -28,7 +28,7 @@ services:
     restart: always
 
   db:
-    container_name: app_db
+    container_name: appf_db
     image: mariadb
     ports:
       - 3309:3306
