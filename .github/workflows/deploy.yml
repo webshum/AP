@@ -28,8 +28,8 @@ jobs:
                       git clean -fd
                       git pull origin develop --force
                       docker exec apf_app composer install
-                      docker exec apf_app sh -с "cd /web/app/themes/sage && npm install" 
-                      docker exec apf_app sh -с "cd /web/app/themes/sage && npm run build"
+                      docker exec apf_app sh -c "cd /web/app/themes/sage && npm install"
+                      docker exec apf_app sh -c "cd /web/app/themes/sage && npm run build"
 
             - name: Deploy to production
               if: github.ref == 'refs/heads/main'
