@@ -27,11 +27,9 @@ jobs:
                       git reset --hard origin/develop
                       git clean -fd
                       git pull origin develop --force
-                      composer install
-                      cd web/app/themes/sage
-                      composer install
-                      npm install
-                      npm run build
+                      docker exec apf_app composer install
+                      docker exec apb_app sh -C "cd /web/app/themes/sage && npm install" 
+                      docker exec apb_app sh -C "cd /web/app/themes/sage && npm run build"
 
             - name: Deploy to production
               if: github.ref == 'refs/heads/main'

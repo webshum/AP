@@ -1,6 +1,6 @@
 services:
   app: 
-    container_name: apf_ap
+    container_name: apf_app
     build: 
       context: .
       dockerfile: Dockerfile
