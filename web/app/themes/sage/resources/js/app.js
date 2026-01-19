@@ -12,6 +12,7 @@ import.meta.glob([
 
 window.addEventListener('load', () => {
     Fancybox.bind('[data-fancybox]', {});
+    
 
     parts();
 
