@@ -5,7 +5,7 @@
 
 	.ic-hexagon {
 		zoom: 0.6;
-		background-color: #000;
+		background-color: #7f7d7d;
 		&:hover {transform: scale(1.2);}
 	}
 	.account-installator .ic-hexagon {

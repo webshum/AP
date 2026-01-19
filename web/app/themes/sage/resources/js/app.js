@@ -1,12 +1,18 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import CategoryList from './components/CategoryList.vue';
 import AiAssistant from './components/AiAssistant/AiAssistant.vue';
+
+import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 import.meta.glob([
   '../images/**',
   '../fonts/**',
 ]);
 
 window.addEventListener('load', () => {
+    Fancybox.bind('[data-fancybox]', {});
+
     parts();
 
     if (document.getElementById('main-preloader')) {

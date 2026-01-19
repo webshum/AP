@@ -1,9 +1,11 @@
 @php
     $subcategories = [];
     $current_category = null;
+    $gallery = null;
 
     if (!empty(get_queried_object()->term_id)) {
         $current_category = get_queried_object();
+        $gallery = get_field('gallery', 'term_' . $current_category->term_id);
     } else {
         $categories = get_the_category();
     
@@ -52,5 +54,12 @@
             </li>
             @php $count++ @endphp
         @endforeach
+
+        @if(!empty($gallery) && sizeof($gallery))
+        <li data-id="gallery">
+            <a href="#gallery"><span>Gallery</span></a>
+            <a href="#gallery" class="ic-hexagon"></a>
+        </li>
+        @endif
     </ul>
 @endif

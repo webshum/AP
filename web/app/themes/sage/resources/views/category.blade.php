@@ -1,6 +1,7 @@
 @php
     $subcategories = [];
     $current_category = get_queried_object();
+    $gallery = get_field('gallery', 'term_' . $current_category->term_id);
     
     if (!empty($current_category)) {
         $args = [
@@ -56,6 +57,16 @@
 
                     @php $count++; @endphp
                 @endforeach
+                
+                @if(!empty($gallery) && sizeof($gallery))
+                <div class="post-category post-gallery" id="gallery">
+                    @foreach($gallery as $image)
+                        <a data-fancybox="gallery" data-src="{{ $image['url'] }}" data-caption="{{ $image['alt'] }}">
+                            <img src="{{ $image['url'] }}"/>
+                        </a>
+                    @endforeach
+                </div>
+                @endif
             @endif
         </div>
     </div>
