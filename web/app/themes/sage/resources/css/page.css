@@ -1,13 +1,12 @@
 .page {
 	.e-content {
-		background: #fff;
-		color: #000;
 		padding: 30px;
 		border-radius: 30px;
 		margin-top: 40px;
 		overflow: hidden;
         font-weight: 300;
         font-size: 18px;
+        border: 1px solid rgba(255, 255, 255, .1);
 
         img {border-radius: 15px;}
         .aligncenter {margin: 0 auto;}
@@ -73,6 +72,7 @@
 
         @media (max-width: 767px) {
             padding: 20px;
+            border-radius: 20px;
             font-size: 15px;
 
             p {
@@ -100,9 +100,7 @@
 }
 
 .page-header {
-    .center {
-        max-width: 1030px;
-    }
+    padding-top: 50px;
 
     h1 {
         font-size: 25px;
@@ -111,6 +109,7 @@
     }
 
     .image {
+        border: 1px solid rgba(255, 255, 255, .1);
         border-radius: 20px;
         overflow: hidden;
         max-height: 400px;
@@ -122,11 +121,5 @@
             height: 100%;
             object-fit: cover;
         }
-    }
-}
-
-@media (max-width: 1000px) {
-    .page .e-content {
-        border-radius: 0;
     }
 }

@@ -5,7 +5,6 @@
 
     if (!empty(get_queried_object()->term_id)) {
         $current_category = get_queried_object();
-        $gallery = get_field('gallery', 'term_' . $current_category->term_id);
     } else {
         $categories = get_the_category();
     
@@ -35,6 +34,14 @@
         ];
 
         $subcategories = get_categories($args);
+
+        $findCategoriesGallery = get_categories([
+            'taxonomy' => 'category',
+            'child_of' => $current_category->term_id,
+            'hide_empty' => false,
+        ]);
+
+        $gallery = collect($findCategoriesGallery)->firstWhere('slug', 'gallery');
     }
 @endphp
 
@@ -45,20 +52,20 @@
             @php
                 $active = ($current_category->slug == $subcategory->slug) ? 'active' : '';
             @endphp
-
+            
             <li class="{{ $active }}" data-id="sub-category-{{ $count }}">
-                <a href="#sub-category-{{ $count }}">
+                <a href="/category/{{ $current_category->slug }}/#sub-category-{{ $count }}">
                     <span>{{ $subcategory->name }}</span>
                 </a>
-                <a href="#sub-category-{{ $count }}" class="ic-hexagon"></a>
+                <a href="/category/{{ $current_category->slug }}/#sub-category-{{ $count }}" class="ic-hexagon"></a>
             </li>
             @php $count++ @endphp
         @endforeach
 
-        @if(!empty($gallery) && sizeof($gallery))
+        @if(!empty($gallery))
         <li data-id="gallery">
-            <a href="#gallery"><span>Gallery</span></a>
-            <a href="#gallery" class="ic-hexagon"></a>
+            <a href="/category/{{ $current_category->slug }}/#gallery-category"><span>Gallery</span></a>
+            <a href="/category/{{ $current_category->slug }}/#gallery-category" class="ic-hexagon"></a>
         </li>
         @endif
     </ul>

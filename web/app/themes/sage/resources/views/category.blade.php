@@ -1,7 +1,6 @@
 @php
     $subcategories = [];
     $current_category = get_queried_object();
-    $gallery = get_field('gallery', 'term_' . $current_category->term_id);
     
     if (!empty($current_category)) {
         $args = [
@@ -32,6 +31,8 @@
             @if(!empty($subcategories) && sizeof($subcategories))
                 @foreach($subcategories as $subcategory)
                     <div class="post-category" id="sub-category-{{ $count }}">
+                        <div class="label">{{ $subcategory->name }}</div>
+
                         @php 
                             $posts = new WP_Query([
                                 'post_type' => 'post',
@@ -58,14 +59,8 @@
                     @php $count++; @endphp
                 @endforeach
                 
-                @if(!empty($gallery) && sizeof($gallery))
-                <div class="post-category post-gallery" id="gallery">
-                    @foreach($gallery as $image)
-                        <a data-fancybox="gallery" data-src="{{ $image['url'] }}" data-caption="{{ $image['alt'] }}">
-                            <img src="{{ $image['url'] }}"/>
-                        </a>
-                    @endforeach
-                </div>
+                @if(!empty($current_category))
+                    <x-gallery :category="$current_category"/>
                 @endif
             @endif
         </div>

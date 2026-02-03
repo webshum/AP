@@ -16,11 +16,26 @@
 
 .post-category {
     border-radius: 30px;
-    padding: 30px;
+    padding: 40px 30px 30px 30px;
     background: rgba(0, 0, 0, .2);
     backdrop-filter: blur(5px);
+    position: relative;
+
+    .label {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, .2);
+        border-radius: 0 0 10px 10px;
+        color: #fff;
+        padding: 3px 15px;
+    }
 
     & + .post-category {margin-top: 30px;}
+
+    article h2 a,
+    article .read-more {color: #6caeed;}
 
     .article {
         color: #fff;
@@ -82,24 +97,60 @@
         }
     }
 
-    &:nth-child(1) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}   
-    &:nth-child(2) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}   
-    &:nth-child(3) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}   
-    &:nth-child(4) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}   
-    &:nth-child(5) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}   
-    &:nth-child(6) {box-shadow: 0 -2px 10px rgba(0, 99, 238, 0.5);} 
-    &:nth-child(8) {box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);}  
-    &:nth-child(9) {box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);}  
-    &:nth-child(10) {box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);}  
-    &:nth-child(11) {box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);}  
-    &:nth-child(12) {box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);}  
-    &:nth-child(13) {box-shadow: 0 -2px 10px rgba(0, 99, 238), 0.5;}
+    &:nth-child(1) {
+        box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);
+        .label {background: rgba(255, 53, 76, 0.5);}
+    }   
+    &:nth-child(2) {
+        box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);
+        .label {background: rgba(255, 153, 0, 0.5);}
+    }   
+    &:nth-child(3) {
+        box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);
+        .label {background: rgba(255, 238, 0, 0.5);}
+    }   
+    &:nth-child(4) {
+        box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);
+        .label {background: rgba(40, 159, 12, 0.5);}
+    }   
+    &:nth-child(5) {
+        box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);
+        .label {background: rgba(0, 141, 240, 0.5);}
+    }   
+    &:nth-child(6) {
+        box-shadow: 0 -2px 10px rgba(0, 99, 238, 0.5);
+        .label {background: rgba(0, 99, 238, 0.5);}
+    } 
+    &:nth-child(8) {
+        box-shadow: 0 -2px 10px rgba(255, 53, 76, 0.5);
+        .label {background: rgba(255, 53, 76, 0.5);}
+    }  
+    &:nth-child(9) {
+        box-shadow: 0 -2px 10px rgba(255, 153, 0, 0.5);
+        .label {background: rgba(255, 153, 0, 0.5);}
+    }  
+    &:nth-child(10) {
+        box-shadow: 0 -2px 10px rgba(255, 238, 0, 0.5);
+        .label {background: rgba(255, 238, 0, 0.5);}
+    }  
+    &:nth-child(11) {
+        box-shadow: 0 -2px 10px rgba(40, 159, 12, 0.5);
+        .label {background: rgba(40, 159, 12, 0.5);}
+    }  
+    &:nth-child(12) {
+        box-shadow: 0 -2px 10px rgba(0, 141, 240, 0.5);
+        .label {background: rgba(0, 141, 240, 0.5);}
+    }  
+    &:nth-child(13) {
+        box-shadow: 0 -2px 10px rgba(0, 99, 238, 0.5);
+        .label {background: rgba(0, 99, 238, 0.5);}
+    }
 
     &.post-gallery {box-shadow: 0 -2px 10px rgba(130, 115, 233);}
 
     @media (max-width: 991px) {
         border-radius: 20px;
-        padding: 20px;
+        padding: 40px 20px 20px 20px;
 
         .article {
             gap: 0 20px;
@@ -122,38 +173,8 @@
     }
 
     @media (max-width: 360px) {
-        padding: 10px;
+        padding: 40px 10px 10px 10px;
     }
-}
-
-.category-wentylacja .post-category {
-    article h2 a,
-    article .read-more {color: #6caeed;}
-}
-
-.category-fotowoltaika .post-category {
-    article h2 a,
-    article .read-more {color: #01d225;}
-}
-
-.category-projektowanie .post-category {
-    article h2 a,
-    article .read-more {color: #b700ff;}
-}
-
-.category-ogrzewanie .post-category {
-    article h2 a,
-    article .read-more {color: #ff4c00;}
-}
-
-.category-automatyzacja .post-category {
-    article h2 a,
-    article .read-more {color: #ffb300;}
-}
-
-.category-elektryka .post-category {
-    article h2 a,
-    article .read-more {color: #ffdb00;}
 }
 
 .categories-horizontal {
@@ -162,16 +183,19 @@
     justify-content: center;
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
     zoom: 0.6;
     transition: all 0.3s;
-    max-height: 120px;
+    max-height: 130px;
+    max-width: 900px;
 
     &.is-sticky {
-        background-color: rgba(9, 66, 92, 0.5);
+        background-color: #000;
         backdrop-filter: blur(5px);
+        border-color: #fff;
+        border-radius: 30px;
         a span {display: none;}
     }
 
@@ -251,6 +275,16 @@
         }
     }
 
+    @media (max-width: 1024px) {
+        left: 0;
+        right: 0;
+        transform: none;
+        max-width: inherit;
+        zoom: 0.5;
+
+        &.is-sticky {border-radius: 0;}
+    }
+
     @media (max-width: 550px) {
         a .image {max-width: 70px;}
     }
@@ -318,35 +352,70 @@
 }
 
 .post-gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-
-    a {
+    .gallery-categories {
         display: flex;
-        border-radius: 15px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.3s;
-        border: 2px solid #685996;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 20px;
+        overflow: auto;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        li {
+            cursor: pointer;
+            background: rgba(0, 0, 0, .3);
+            padding: 5px 15px;
+            border-radius: 15px;
+            transition: all 0.3s;
+            &:hover,
+            &.active {background: #5e519b;}
         }
 
-        &:hover {transform: scale(1.03);}
+        &::-webkit-scrollbar {
+            height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: none;
+        }
+
+        @media (max-width: 550px) {
+            max-width: 300px;
+        }
     }
 
-    @media (max-width: 767px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
+    .gallery-grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        border-radius: 20px;
+        overflow: hidden;
 
-        a {border-radius: 10px;}
-    }
+        a {
+            height: 100%;
+            display: block;
+            cursor: pointer;
+            overflow: hidden;
+            max-height: 150px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.3s;
+            }
 
-    @media (max-width: 500px) {
-        grid-template-columns: repeat(2, 1fr);
+            &:hover img {transform: scale(1.05);}
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 550px) {
+            border-radius: 15px;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 }

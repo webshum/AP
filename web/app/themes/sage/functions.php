@@ -186,3 +186,14 @@ function get_background_category() {
     
     echo $background ? "style='{$background}'" : '';
 }
+
+/*
+|--------------------------------------------------------------------------
+| ALLOW UPLOAD SVG
+|--------------------------------------------------------------------------
+*/
+function allow_svg_upload($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_upload');

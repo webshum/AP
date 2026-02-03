@@ -13,7 +13,7 @@
         </h2>
 
         <div class="descr">
-            {!! get_the_excerpt() !!}
+            {!! wp_trim_words(get_the_excerpt(), 30) !!}
         </div>
 
         <a href="{{ get_permalink() }}" class="read-more">

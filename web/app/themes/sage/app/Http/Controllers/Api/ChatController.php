@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache;
 
 class ChatController {
 	private $api_key;

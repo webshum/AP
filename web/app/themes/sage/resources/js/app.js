@@ -1,6 +1,7 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import CategoryList from './components/CategoryList.vue';
 import AiAssistant from './components/AiAssistant/AiAssistant.vue';
+import Gallery from './components/Gallery/Gallery.vue';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -172,3 +173,7 @@ app.mount('#categories');
 const ai = createApp({});
 ai.component('ai-assistant', AiAssistant);
 ai.mount('#ai');
+
+const gallery = createApp({});
+gallery.component('gallery', Gallery);
+gallery.mount('#gallery-category')

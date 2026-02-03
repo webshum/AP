@@ -65,7 +65,7 @@
 	}
 
 	@media (max-width: 767px) {
-		margin-top: -6px;
+		margin-top: 0;
 		zoom: 0.8;
 	}
 }
