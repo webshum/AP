@@ -48,7 +48,7 @@ class FaqController {
 		], 201);
 	}
 
-	public function show($id) {
+	public function show(int $id) {
 		return 'show';
 	}
 
@@ -56,7 +56,7 @@ class FaqController {
 		return 'update';
 	}
 
-	public function destroy($id) {
+	public function destroy(int $id) {
 		return 'delete';
 	}
 
