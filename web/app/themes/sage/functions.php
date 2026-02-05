@@ -192,8 +192,9 @@ function get_background_category() {
 | ALLOW UPLOAD SVG
 |--------------------------------------------------------------------------
 */
-function allow_svg_upload($mimes) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-add_filter('upload_mimes', 'allow_svg_upload');
+add_action('init', function() {
+    if ( ! is_admin() ) {
+        remove_action( 'wp_head', array( 'WC_Cart', 'get_cart_fragments' ) );
+        wp_dequeue_script( 'wc-cart-fragments' );
+    }
+}, 999);
