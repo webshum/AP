@@ -5,9 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /var/www
+    mem_limit: 2g
+    mem_reservation: 512m
     volumes:
       - ./:/var/www
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php/www.conf:/usr/local/etc/php-fpm/www.conf
     networks:
       - app-network
     depends_on:
