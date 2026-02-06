@@ -187,14 +187,7 @@ function get_background_category() {
     echo $background ? "style='{$background}'" : '';
 }
 
-/*
-|--------------------------------------------------------------------------
-| ALLOW UPLOAD SVG
-|--------------------------------------------------------------------------
-*/
 add_action('init', function() {
-    if ( ! is_admin() ) {
-        remove_action( 'wp_head', array( 'WC_Cart', 'get_cart_fragments' ) );
-        wp_dequeue_script( 'wc-cart-fragments' );
-    }
+    wp_dequeue_script('wc-cart-fragments');
+    remove_action('wp_head', array('WC_Cart', 'get_cart_fragments'));
 }, 999);
