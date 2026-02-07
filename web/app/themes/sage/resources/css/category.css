@@ -358,7 +358,7 @@
     .gallery-categories {
         padding: 0 30px;
 
-        .is-centered {justify-content: center;}
+        .is-centered .splide__list {justify-content: center;}
 
         .slide {
             background: #8273e9;
