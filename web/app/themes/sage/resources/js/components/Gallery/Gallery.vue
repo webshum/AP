@@ -58,9 +58,12 @@ const splideOptions = computed(() => {
         breakpoints: {
             1400: {
                 arrows: true,
-                perPage: 4
+                perPage: 4,
             },
-            767: {perPage: 1},
+            767: {
+                perPage: 1,
+                gap: 0
+            },
         }
     };
 });
