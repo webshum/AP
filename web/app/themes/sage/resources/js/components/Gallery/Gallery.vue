@@ -56,14 +56,16 @@ const splideOptions = computed(() => {
         pagination: false,
         arrows: isSlider,
         breakpoints: {
-            1400: {perPage: 4},
+            1400: {
+                arrows: true,
+                perPage: 4
+            },
             767: {perPage: 1},
         }
     };
 });
 
 function onSlideMoved(splide, newIndex) {
-    console.log('moveв');
     if (window.innerWidth <= 767) {
         const category = categories[newIndex];
         if (category) getImages(category.term_id);
