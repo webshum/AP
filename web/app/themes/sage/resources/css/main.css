@@ -137,6 +137,8 @@ h6 {font-size: 10px;}
     align-items: start;
     margin-top: 50px;
 
+	& > .content {min-width: 0;}
+
     aside {
         position: sticky;
         top: 120px;
