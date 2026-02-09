@@ -1,0 +1,36 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-DxpY22xl.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-aLrn1pQU.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-l0sNRNKZ.js",
+    "name": "editor",
+    "src": "resources/css/editor.css",
+    "isEntry": true
+  },
+  "resources/images/home-bg.jpg": {
+    "file": "assets/home-bg-BLojIxuO.jpg",
+    "src": "resources/images/home-bg.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CF5op15B.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-D5Y-eleY.css"
+    ]
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-CfU4GbSP.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
+  }
+}
