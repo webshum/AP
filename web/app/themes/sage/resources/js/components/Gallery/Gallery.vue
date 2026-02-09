@@ -1,7 +1,5 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/vue-splide/css/core';
 
 const images = ref([]);
 const activeCategory = ref(null);
@@ -45,53 +43,23 @@ onMounted(async () => {
         await getImages(categories[0].term_id);
     }
 });
-
-const splideOptions = computed(() => {
-    const isSlider = categories.length >= 5;
-
-    return {
-        type: 'slide',
-        perPage: 5,
-        gap: 30,
-        pagination: false,
-        arrows: isSlider,
-        breakpoints: {
-            1400: {
-                arrows: true,
-                perPage: 4,
-            },
-            767: {
-                perPage: 1,
-                gap: 0
-            },
-        }
-    };
-});
-
-function onSlideMoved(splide, newIndex) {
-    if (window.innerWidth <= 767) {
-        const category = categories[newIndex];
-        if (category) getImages(category.term_id);
-    }
-}
 </script>
 
 <template>
     <div class="gallery-categories">
-        <Splide 
-            :options="splideOptions"
-            :class="{'is-centered': categories.length < 5}"
-            @splide:moved="onSlideMoved"
-        >
-            <SplideSlide
-                v-for="category in categories" 
-                :key="category.term_id"
-                :class="{active: activeCategory === category.term_id}"
-                @click="getImages(category.term_id)"
-            >
-                <div class="slide">{{ category.name }}</div>
-            </SplideSlide>
-        </Splide>
+        <div class="scroll">
+            <div class="inner">
+                <div 
+                    v-for="category in categories" 
+                    :key="category.term_id"
+                    :class="{active: activeCategory === category.term_id}"
+                    @click="getImages(category.term_id)"
+                    class="tag"
+                >
+                    {{ category.name }}
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="gallery-grid" v-if="images && images.length">

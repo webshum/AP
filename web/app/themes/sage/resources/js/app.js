@@ -24,7 +24,6 @@ window.addEventListener('load', () => {
     if (document.querySelector('.categories-horizontal')) headerSticky();
     if (document.querySelector('.hexagon-categories')) anchor();
     if (document.querySelector('.faq-accordeon')) accordion_toggle();
-    if (document.querySelector('.cursor')) cursor();
 
     document.querySelector('.menu-open').onclick = e => {
         e.preventDefault();
@@ -77,56 +76,62 @@ function anchor() {
     const sections = document.querySelectorAll(".post-category");
     const navLinks = document.querySelectorAll(".hexagon-categories li");
 
-    if (!sections.length || !navLinks.length) {
-        console.warn("No sections or nav links found.");
-        return;
+    if (!sections.length || !navLinks.length) return;
+
+    function updateActiveLink() {
+        const scrollPosition = window.scrollY + 150; 
+        let currentSection = null;
+        let minDistance = Infinity;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const distance = Math.abs(scrollPosition - sectionTop);
+
+            if (scrollPosition >= sectionTop - 200 && distance < minDistance) {
+                minDistance = distance;
+                currentSection = section;
+            }
+        });
+
+        if (currentSection) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            
+            const activeLink = document.querySelector(
+                `.hexagon-categories li[data-id="${currentSection.id}"]`
+            );
+            
+            if (activeLink) {
+                activeLink.classList.add("active");
+            }
+        }
     }
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach((link) => link.classList.remove("active"));
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("data-id");
+            const targetSection = document.getElementById(targetId);
 
-                    const activeLink = document.querySelector(
-                        `.hexagon-categories li[data-id="${entry.target.id}"]`
-                    );
+            if (targetSection) {
+                e.preventDefault();
+                
+                navLinks.forEach((l) => l.classList.remove("active"));
+                link.classList.add("active");
 
-                    if (activeLink) {
-                        activeLink.classList.add("active");
-                    } else {
-                        console.warn(`No link found for section ID: ${entry.target.id}`);
-                    }
-                }
-            });
-        },
-        {
-            root: null,
-            rootMargin: "-20% 0px -20% 0px",
-            threshold: 0.2,
-        }
-    );
-
-    sections.forEach((section) => {
-        if (section.id) {
-            observer.observe(section);
-        } else {
-            console.warn("Section missing ID:", section);
-        }
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
     });
-}
 
-function cursor() {
-    let curs = document.querySelector('.cursor');
-
-    document.addEventListener('mousemove', (e) => {
-        if (!curs) return;
-        let x = e.pageX;
-        let y = e.pageY;
-        curs.style.left = (x - 175) + "px";
-        curs.style.top = (y - 175) + "px";
-        curs.style.opacity = "1";
+    let timeout;
+    window.addEventListener("scroll", () => {
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(updateActiveLink, 5);
     });
+
+    updateActiveLink();
 }
 
 function accordion_toggle() {

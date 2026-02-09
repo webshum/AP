@@ -20,6 +20,7 @@
     background: rgba(0, 0, 0, .2);
     backdrop-filter: blur(5px);
     position: relative;
+    overflow: hidden;
 
     .label {
         position: absolute;
@@ -335,7 +336,7 @@
     li:nth-child(12) a { background: #008df0; }
     li:nth-child(13) a { background: #0063ee; } 
 
-    li[data-id="gallery"] a { background: #8273e9; } 
+    li[data-id="gallery-category"] a { background: #8273e9; } 
 
     &:after {
         content: '';
@@ -356,55 +357,40 @@
 
 .post-gallery {
     .gallery-categories {
-        padding: 0 30px;
+        min-width: 0;
+        text-align: center;
 
-        .is-centered .splide__list {justify-content: center;}
+        .scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            mask-image: radial-gradient(circle at center, #000 80%, transparent 100%);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .scroll::-webkit-scrollbar {
+            height: 0;
+            display: none;
+        }
 
-        .slide {
+        .inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: start;
+            width: max-content;
+            padding-inline: 20px; 
+        }
+        
+        .tag {
             background: #8273e9;
             text-align: center;
-            padding: 5px 10px;
+            padding: 5px 30px;
             border-radius: 30px;
             cursor: pointer;
+            text-wrap: nowrap;
         }
 
-        .active .slide {background: #ff354c;}
-
-        .splide__arrow {
-            position: absolute;
-            top: 50%;
-            z-index: 10;
-            transform: translateY(-50%);
-            cursor: pointer;
-            transition: all 0.3s;
-            user-select: none;
-            &:hover {opacity: 0.5;}
-
-            svg {
-                fill: #8273e9;
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        .splide__arrow--prev {
-            left: -30px;
-            svg {
-                transform: rotate(-180deg);
-                transform-origin: center;
-            }
-        }
-        .splide__arrow--next {right: -30px;}
-
-        @media (max-width: 767px) {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-         @media (max-width: 500px) {
-            max-width: 250px;
-            margin: 0 auto;
-        }
+        .active.tag {background: #ff354c;}
     }
 
     .gallery-grid {

@@ -1,14 +1,17 @@
 @php
     $subcategories = [];
     $current_category = null;
+    $current_post_category = null;
     $gallery = null;
-
+    
     if (!empty(get_queried_object()->term_id)) {
         $current_category = get_queried_object();
     } else {
         $categories = get_the_category();
-    
+        
         if (!empty($categories)) {
+            $current_post_category = collect($categories)->firstWhere('parent', '>', 0);
+            
             if (count($categories) > 1) {
                 foreach ($categories as $cat) {
                     if ($cat->parent > 0) {
@@ -51,6 +54,10 @@
         @foreach ($subcategories as $subcategory)
             @php
                 $active = ($current_category->slug == $subcategory->slug) ? 'active' : '';
+
+                if ($current_category->slug == $subcategory->slug || $current_post_category?->slug == $subcategory->slug) {
+                    $active = 'active';
+                }
             @endphp
             
             <li class="{{ $active }}" data-id="sub-category-{{ $count }}">
@@ -63,7 +70,7 @@
         @endforeach
 
         @if(!empty($gallery))
-        <li data-id="gallery">
+        <li data-id="gallery-category">
             <a href="/category/{{ $current_category->slug }}/#gallery-category"><span>Gallery</span></a>
             <a href="/category/{{ $current_category->slug }}/#gallery-category" class="ic-hexagon"></a>
         </li>
