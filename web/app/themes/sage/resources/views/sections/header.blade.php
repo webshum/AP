@@ -3,7 +3,7 @@
         <a href="{{ env('APP_URL_BACKEND') }}" class="account-user">
             <div class="ic-hexagon"></div>
         </a>
-        
+
         <a class="brand" href="{{ home_url('/') }}">
           {!! $siteName !!}
         </a>
@@ -14,7 +14,7 @@
           </nav>
         @endif
 
-        <a href="{{ env('APP_URL_BACKEND') }}" class="account-installator">
+        <a href="{{ env('VITE_API_URL') }}/wp/wp-admin" class="account-installator">
             <div class="ic-hexagon"></div>
         </a>
 
@@ -25,4 +25,3 @@
         </button>
     </div>
 </header>
-
