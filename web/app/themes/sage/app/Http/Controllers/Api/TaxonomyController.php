@@ -32,6 +32,7 @@ class TaxonomyController {
         }
 
         $terms = get_categories($args);
+        
         $normalized = array_map(function($term) {
             return [
                 'id' => $term->term_id ?? $term['cat_ID'] ?? null,
@@ -41,6 +42,7 @@ class TaxonomyController {
                 'description' => $term->description ?? $term->category_description ?? '',
                 'parent' => $term->parent ?? $term->category_parent ?? 0,
                 'count' => $term->count ?? $term->category_count ?? 0,
+                'image' => get_field('image', 'term_' . $term->term_id) ?? null,
             ];
         }, $terms ?? []);
 

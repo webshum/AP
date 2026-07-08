@@ -1,20 +1,4 @@
-@php
-    $subcategories = [];
-    $current_category = get_queried_object();
-    
-    if (!empty($current_category)) {
-        $args = [
-            'taxonomy'   => 'category',
-            'child_of'   => $current_category->term_id,
-            'hide_empty' => true,
-        ];
-
-        $subcategories = get_categories($args);
-    }
-@endphp
-
 @extends('layouts.app')
-
 @section('content')
 
 <x-categories/>
@@ -26,39 +10,19 @@
         </aside>
 
         <div class="content">
-            @php $count = 0; @endphp
+            @if(!empty($subcategories_with_posts) && sizeof($subcategories_with_posts))
+                @foreach($subcategories_with_posts as $index => $item)
+                    <div class="post-category" id="sub-category-{{ $index }}">
+                        <div class="label">{{ $item['subcategory']->name }}</div>
 
-            @if(!empty($subcategories) && sizeof($subcategories))
-                @foreach($subcategories as $subcategory)
-                    <div class="post-category" id="sub-category-{{ $count }}">
-                        <div class="label">{{ $subcategory->name }}</div>
-
-                        @php 
-                            $posts = new WP_Query([
-                                'post_type' => 'post',
-                                'posts_per_page' => -1,
-                                'tax_query' => [
-                                    [
-                                        'taxonomy' => 'category',
-                                        'field'    => 'term_id',
-                                        'terms'    => $subcategory->term_id,
-                                    ]
-                                ]
-                            ]);
-                        @endphp
-
-                        @if($posts->have_posts())
-                            @while($posts->have_posts()) @php $posts->the_post(); @endphp
-                                @include('partials.article')
-                            @endwhile
-
-                            @php wp_reset_postdata() @endphp
-                        @endif
+                        @foreach($item['posts'] as $postItem)
+                            @php setup_postdata($postItem); @endphp
+                            @include('partials.article')
+                        @endforeach
+                        @php wp_reset_postdata(); @endphp
                     </div>
-
-                    @php $count++; @endphp
                 @endforeach
-                
+
                 @if(!empty($current_category))
                     <x-gallery :category="$current_category"/>
                 @endif

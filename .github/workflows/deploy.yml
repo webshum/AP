@@ -39,14 +39,14 @@ jobs:
                   username: "${{ secrets.PROD_USERNAME }}"
                   password: "${{ secrets.PROD_PASSWORD }}"
                   script: |
-                      cd /home/di569345/architecture-of-technology.com/www/
+                      cd /home/ap-front/
                       git fetch origin
                       git reset --hard origin/main
                       git clean -fd
                       git pull origin main --force
-                      composer install
-                      /home/di569345/architecture-of-technology.com/www/web/app/themes/sage
-                      composer install
+                      docker exec apf_app composer install
+                      docker exec apf_app sh -c "cd /var/www/web/app/themes/sage && npm install"
+                      docker exec apf_app sh -c "cd /var/www/web/app/themes/sage && npm run build"
 
             - name: Send Telegram message
               if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
